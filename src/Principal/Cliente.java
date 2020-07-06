@@ -1,5 +1,5 @@
 package Principal;
-
+// Hola 
 
 public class Cliente {
     public int id_cliente;
