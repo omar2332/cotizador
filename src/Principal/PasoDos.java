@@ -9,13 +9,17 @@ package Principal;
  *
  * @author HP
  */
-public class PasoDos extends javax.swing.JPanel {
+public class PasoDos extends javax.swing.JPanel{
 
     /**
      * Creates new form PasoDos
      */
+    public int contador = 8;
     public PasoDos() {
         initComponents();
+        labelDescuentoText.setText("Descuento: 0%");
+    
+        
     }
 
     /**
@@ -28,36 +32,66 @@ public class PasoDos extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        labelVigencia = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnResta = new javax.swing.JButton();
+        btnSuma = new javax.swing.JButton();
+        labelDescuentoText = new javax.swing.JLabel();
+        sliderDescuento = new javax.swing.JSlider();
+        btnRegresar = new javax.swing.JButton();
+        btnContinuar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(550, 421));
+        setMinimumSize(new java.awt.Dimension(550, 421));
 
         jLabel1.setText("Seleccionar descuento y Vigencia del producto(Si deja en blanco seran 8 dias por defecto)");
 
-        jLabel2.setText("Vigencia");
+        labelVigencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                labelVigenciaKeyTyped(evt);
+            }
+        });
 
-        jButton1.setText("-");
+        jLabel2.setText("Vigencia (Numero de dias)");
 
-        jButton2.setText("+");
+        btnResta.setText("-");
 
-        jLabel3.setText("Descuento");
+        btnSuma.setText("+");
 
-        jSlider1.setMajorTickSpacing(5);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setValue(0);
+        labelDescuentoText.setText("Descuento");
 
-        jButton3.setText("Regresar");
+        sliderDescuento.setMajorTickSpacing(5);
+        sliderDescuento.setPaintLabels(true);
+        sliderDescuento.setPaintTicks(true);
+        sliderDescuento.setValue(0);
+        sliderDescuento.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderDescuentoStateChanged(evt);
+            }
+        });
 
-        jButton4.setText("Continuar");
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Cancelar");
+        btnContinuar.setText("Continuar");
+        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinuarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,29 +100,29 @@ public class PasoDos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(labelDescuentoText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sliderDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addComponent(jButton3)
+                .addComponent(btnRegresar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnCancelar)
                 .addGap(66, 66, 66)
-                .addComponent(jButton4)
+                .addComponent(btnContinuar)
                 .addGap(100, 100, 100))
             .addGroup(layout.createSequentialGroup()
                 .addGap(190, 190, 190)
-                .addComponent(jButton1)
+                .addComponent(btnResta, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnSuma)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,33 +134,113 @@ public class PasoDos extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnResta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSuma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
-                .addComponent(jLabel3)
+                .addComponent(labelDescuentoText)
                 .addGap(44, 44, 44)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sliderDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnRegresar)
+                    .addComponent(btnContinuar)
+                    .addComponent(btnCancelar))
                 .addGap(41, 41, 41))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        PasoUno mp = new PasoUno(MenuPrincipal.CotizacionActual.cliente.nombre);
+        mp.setLocation(393,210);//posicion del panel ajustado al frame
+        mp.setSize(463, 300);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal.CotizacionActual.cliente = null;
+        
+        MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
+        mi.setLocation(412,0);//posicion del panel ajustado al frame
+        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mi);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+     private boolean isNumber(char ch){
+        return ch >= '0' && ch <= '9';
+    }
+
+    private boolean isValidSignal(char ch){
+        if( (labelVigencia.getText() == null || "".equals(labelVigencia.getText().trim()) ) && ch == '-'){
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean validatePoint(char ch){
+        if(ch != '.'){
+            return false;
+        }
+
+        if(labelVigencia.getText() == null || "".equals(labelVigencia.getText().trim())){
+            labelVigencia.setText("0.");
+            return false;
+        }else if("-".equals(labelVigencia.getText())){
+            labelVigencia.setText("-0.");
+        }
+
+        return true;
+    }
+    
+    private void labelVigenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelVigenciaKeyTyped
+        // TODO add your handling code here:
+        char ch = evt.getKeyChar();
+
+                if (!isNumber(ch) && !isValidSignal(ch) && !validatePoint(ch)  && ch != '\b') {
+                    evt.consume();
+                }
+    }//GEN-LAST:event_labelVigenciaKeyTyped
+
+    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnContinuarActionPerformed
+
+    private void sliderDescuentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderDescuentoStateChanged
+        // TODO add your handling code here:
+        labelDescuentoText.setText("Descuento: " + String.valueOf(sliderDescuento.getValue()) + "%");
+        
+    }//GEN-LAST:event_sliderDescuentoStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnContinuar;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnResta;
+    private javax.swing.JButton btnSuma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelDescuentoText;
+    private javax.swing.JTextField labelVigencia;
+    private javax.swing.JSlider sliderDescuento;
     // End of variables declaration//GEN-END:variables
+
+    
 }

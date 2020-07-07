@@ -6,6 +6,10 @@
 package Principal;
 
 import static Principal.MenuPrincipal.panelPrincipal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +56,11 @@ public class AltaCliente extends javax.swing.JPanel {
         });
 
         jButton2.setText("Dar de Alta");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Alta Cliente");
 
@@ -141,6 +150,26 @@ public class AltaCliente extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        String nombre = labelNombre.getText();
+        String puesto = labelPuesto.getText();
+        String Empresa = labelEmpresa.getText();
+        
+        try {
+            boolean var = MenuPrincipal.consultas.cambiosProducto("insert into clientes(nombre,apellido,empresa) values ('"+nombre +"', '"+puesto +"', '"+ Empresa+"');");
+            if(var){
+                JOptionPane.showMessageDialog(null, "Se agrego correctamente"); 
+                MenuPrincipal.consultas.CargaClientes();//cargaClientes
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Fallo al agregar");
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

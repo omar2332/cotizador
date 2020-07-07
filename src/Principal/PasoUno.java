@@ -15,6 +15,21 @@ public class PasoUno extends javax.swing.JPanel {
      * Creates new form PasoUno
      */
     
+     public PasoUno(String nombre) {
+        initComponents();
+        int position = -1;
+        String clientesNombres[] = new String[MenuPrincipal.ClientesMuestra.size()];
+        for(int i = 0; i<MenuPrincipal.ClientesMuestra.size();i++){
+            clientesNombres[i] = MenuPrincipal.ClientesMuestra.get(i).nombre;
+            if(nombre.equals(clientesNombres[i])){
+                position = i;
+            }
+        }
+        listaNombres.setModel(new javax.swing.DefaultComboBoxModel<>(clientesNombres));
+        listaNombres.setSelectedIndex(position);
+        
+    }
+    
     public PasoUno() {
         initComponents();
         String clientesNombres[] = new String[MenuPrincipal.ClientesMuestra.size()];
@@ -22,6 +37,8 @@ public class PasoUno extends javax.swing.JPanel {
             clientesNombres[i] = MenuPrincipal.ClientesMuestra.get(i).nombre;
         }
         listaNombres.setModel(new javax.swing.DefaultComboBoxModel<>(clientesNombres));
+        
+        
     }
 
     /**
@@ -38,7 +55,7 @@ public class PasoUno extends javax.swing.JPanel {
         btnRegresar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(463, 300));
@@ -69,7 +86,12 @@ public class PasoUno extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Cancelar");
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,7 +104,7 @@ public class PasoUno extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addComponent(listaNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnCancelar)
                         .addGap(33, 33, 33)
                         .addComponent(btnRegresar)
                         .addGap(28, 28, 28)
@@ -103,7 +125,7 @@ public class PasoUno extends javax.swing.JPanel {
                     .addComponent(btnRegresar)
                     .addComponent(btnNuevo)
                     .addComponent(btnContinuar)
-                    .addComponent(jButton1))
+                    .addComponent(btnCancelar))
                 .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -143,16 +165,43 @@ public class PasoUno extends javax.swing.JPanel {
         // TODO add your handling code here:
        
         MenuPrincipal.CotizacionActual.cliente = MenuPrincipal.ClientesMuestra.get(listaNombres.getSelectedIndex());
-        
+        PasoDos mp = new PasoDos();
+        //[550, 421]
+        mp.setLocation(350,129);//posicion del panel ajustado al frame
+        mp.setSize(550, 421);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
         
     }//GEN-LAST:event_btnContinuarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal.CotizacionActual.cliente = null;
+        
+        MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
+        mi.setLocation(412,0);//posicion del panel ajustado al frame
+        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mi);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+        
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> listaNombres;
     // End of variables declaration//GEN-END:variables
