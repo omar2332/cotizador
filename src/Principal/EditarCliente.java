@@ -6,6 +6,11 @@
 package Principal;
 
 import static Principal.MenuPrincipal.panelPrincipal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -17,12 +22,43 @@ public class EditarCliente extends javax.swing.JPanel {
      * Creates new form EditarCliente
      * @param idEditarCliente
      */
-    public int idCliente ;
-    public EditarCliente(int idEditarCliente) {
+    public boolean regresar;
+    public int idCliente =-1, buscar_index = -1 ;
+    
+     
+    public EditarCliente(int idEditarCliente) throws ClassNotFoundException, SQLException {
         initComponents();
-        labelNombre.setText(TOOL_TIP_TEXT_KEY);
         this.idCliente = idEditarCliente;
+        regresar = true;
+        btnBuscar.setVisible(false);
+        comboClientes.setVisible(false);
+        Cliente cliente_editar = MenuPrincipal.consultas.DatosCliente(this.idCliente);
+        //ResultSet resultado = MenuPrincipal.consultas.DatosCliente(this.idCliente);
         
+        labelNombre.setEnabled(true);
+        labelEmpresa.setEnabled(true);
+        labelPuesto.setEnabled(true);
+        
+        
+        labelNombre.setText(cliente_editar.nombre);
+        labelEmpresa.setText(cliente_editar.empresa);
+        labelPuesto.setText(cliente_editar.puesto);
+
+    }
+    public EditarCliente(){
+        initComponents();
+        int n = MenuPrincipal.ClientesMuestra.size();
+        String arreglo_clientes[] = new String[n];
+        
+        for(int i = 0; i<n;i++){
+            arreglo_clientes[i] = MenuPrincipal.ClientesMuestra.get(i).nombre + " - " + MenuPrincipal.ClientesMuestra.get(i).empresa ;
+        }
+        
+        comboClientes.setModel(new javax.swing.DefaultComboBoxModel<>(arreglo_clientes));
+        labelNombre.setEnabled(false);
+        labelEmpresa.setEnabled(false);
+        labelPuesto.setEnabled(false);
+        regresar = false;
     }
 
     /**
@@ -43,10 +79,12 @@ public class EditarCliente extends javax.swing.JPanel {
         labelPuesto = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        comboClientes = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(470, 270));
-        setMinimumSize(new java.awt.Dimension(470, 270));
-        setPreferredSize(new java.awt.Dimension(470, 270));
+        setMaximumSize(new java.awt.Dimension(583, 325));
+        setMinimumSize(new java.awt.Dimension(583, 325));
+        setPreferredSize(new java.awt.Dimension(583, 325));
 
         jLabel1.setText("Editar Cliente");
 
@@ -64,41 +102,64 @@ public class EditarCliente extends javax.swing.JPanel {
         });
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        comboClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificar)
-                .addGap(51, 51, 51)
-                .addComponent(btnRegresar)
-                .addGap(126, 126, 126))
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(comboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addGap(51, 51, 51))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addGap(102, 102, 102)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelNombre)
-                            .addComponent(labelEmpresa)
-                            .addComponent(labelPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnModificar)
+                                .addGap(91, 91, 91)
+                                .addComponent(btnRegresar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelEmpresa)
+                                .addComponent(labelNombre)
+                                .addComponent(labelPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(51, 51, 51)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -110,32 +171,129 @@ public class EditarCliente extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(labelPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(62, 122, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegresar)
                     .addComponent(btnModificar))
-                .addGap(26, 26, 26))
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        VerClientes mi = new VerClientes();
-        mi.setLocation(0,0);//posicion del panel ajustado al frame
-        mi.setSize(1250, 720);//tamaño del panel ajustado al frame
-        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
-        panelPrincipal.removeAll();
-        panelPrincipal.add(mi);
-        panelPrincipal.setLocation(0,0);
-        panelPrincipal.setSize(1250, 720);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
+        
+        if(regresar){
+            VerClientes mi = new VerClientes();
+            mi.setLocation(0,0);//posicion del panel ajustado al frame
+            mi.setSize(1250, 720);//tamaño del panel ajustado al frame
+            /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+            panelPrincipal.removeAll();
+            panelPrincipal.add(mi);
+            panelPrincipal.setLocation(0,0);
+            panelPrincipal.setSize(1250, 720);
+            panelPrincipal.revalidate();
+            panelPrincipal.repaint();
+        }else{
+            MenuClientes mp = new MenuClientes();//declaramos el objeto panel MenuProductos
+            mp.setLocation(412,0);//posicion del panel ajustado al frame
+            mp.setSize(426, 720);//tamaño del panel ajustado al frame
+            /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+            panelPrincipal.removeAll();
+            panelPrincipal.add(mp);
+            panelPrincipal.setLocation(0,0);
+            panelPrincipal.setSize(1250, 720);
+            panelPrincipal.revalidate();
+            panelPrincipal.repaint();
+        }
+        
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        buscar_index = comboClientes.getSelectedIndex();
+        Cliente cliente_editar = MenuPrincipal.ClientesMuestra.get(buscar_index);
+        
+        
+        
+       
+        
+        labelNombre.setEnabled(true);
+        labelEmpresa.setEnabled(true);
+        labelPuesto.setEnabled(true);
+        
+        labelNombre.setText(cliente_editar.nombre);
+        labelEmpresa.setText(cliente_editar.empresa);
+        labelPuesto.setText(cliente_editar.puesto);
+        
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+         Cliente cliente_ant =null;
+        if (buscar_index!=-1){
+           cliente_ant = MenuPrincipal.ClientesMuestra.get(buscar_index);
+        }
+        
+        if(idCliente !=-1){
+             try {
+                 cliente_ant = MenuPrincipal.consultas.DatosCliente(idCliente);
+             } catch (ClassNotFoundException ex) {
+                 Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+             } catch (SQLException ex) {
+                 Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }
+        
+        
+        
+        
+        if(cliente_ant.empresa.equals(labelEmpresa.getText()) &&  cliente_ant.nombre.equals(labelNombre.getText()) && cliente_ant.puesto.equals(labelPuesto.getText()) ){
+            JOptionPane.showMessageDialog(null, "No hay cambios en el cliente");
+            
+            
+        }else{
+            String nombre = labelNombre.getText();
+            String empresa = labelEmpresa.getText();
+            String puesto = labelPuesto.getText();
+            int id = cliente_ant.id_cliente;
+            
+            String update_sql = "UPDATE clientes SET nombre = '"+ nombre+ "', apellido = '"+puesto + "', empresa = '"+ empresa+"'" +
+                                    "WHERE id_cliente = " + String.valueOf(id) + ";" ;
+            
+            
+            try {
+                MenuPrincipal.consultas.cambiosProducto(update_sql);
+                MenuPrincipal.consultas.CargaClientes();//cargaClientes
+                if(idCliente == -1){
+                    labelNombre.setText("");
+                    labelEmpresa.setText("");
+                    labelPuesto.setText("");
+                }else{
+                    btnRegresarActionPerformed(null);
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Error al modificar");
+                return;
+            }
+            
+            JOptionPane.showMessageDialog(null, "Se modifico correctamente");
+        }
+        
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> comboClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

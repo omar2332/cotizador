@@ -5,7 +5,6 @@
  */
 package Principal;
 
-import static Principal.MenuPrincipal.panelPrincipal;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -163,6 +162,10 @@ public class AltaCliente extends javax.swing.JPanel {
             if(var){
                 JOptionPane.showMessageDialog(null, "Se agrego correctamente"); 
                 MenuPrincipal.consultas.CargaClientes();//cargaClientes
+                labelNombre.setText("");
+                labelPuesto.setText("");
+                labelEmpresa.setText("");
+                
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);

@@ -86,6 +86,53 @@ public class SQL {
         
    }
    
+   public Cliente DatosCliente(int id) throws ClassNotFoundException, SQLException{
+        Class.forName("org.postgresql.Driver");
+        Cliente cliente = null;
+        conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
+        sentencia = conexion.createStatement();
+        String consultaSQL = "Select * From  clientes where id_cliente = " + String.valueOf(id);
+        resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
+         while(resultado.next()){
+            
+            
+            int a = Integer.parseInt(resultado.getString("id_cliente"));     
+            String puesto = "",empresa = "",nombre = "";
+            
+            
+            
+            if(resultado.getString("apellido").equals("")){
+                puesto = "Null";
+            }else{
+                puesto = resultado.getString("apellido");
+            }
+            
+            if(resultado.getString("empresa").equals("")){
+                empresa = "Null";
+            }else{
+                empresa = resultado.getString("empresa");
+            }
+            
+            if(resultado.getString("nombre").equals("")){
+                nombre = "Null";
+            }else{
+                nombre = resultado.getString("nombre");
+            }
+            
+            cliente = new Cliente(a,nombre,puesto,empresa);
+            
+            
+            
+             
+            
+        }
+        conexion.close();
+        resultado.close();
+        sentencia.close();
+        
+        return cliente;
+   }
+   
    public void CargaClientes() throws ClassNotFoundException, SQLException{
         MenuPrincipal.ClientesMuestra.clear();
         Class.forName("org.postgresql.Driver");

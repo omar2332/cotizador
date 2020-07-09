@@ -56,6 +56,7 @@ public class PasoUno extends javax.swing.JPanel {
         btnNuevo = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        checkIVA = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(463, 300));
@@ -93,24 +94,31 @@ public class PasoUno extends javax.swing.JPanel {
             }
         });
 
+        checkIVA.setText(" ¿IVA?");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(listaNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnRegresar)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnNuevo)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(listaNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCancelar)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnRegresar)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnNuevo)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(checkIVA)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +128,9 @@ public class PasoUno extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(listaNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
+                .addComponent(checkIVA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegresar)
                     .addComponent(btnNuevo)
@@ -163,7 +173,14 @@ public class PasoUno extends javax.swing.JPanel {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
-       
+        boolean iva_bool =checkIVA.isSelected();
+        
+        if(iva_bool){
+            MenuPrincipal.CotizacionActual.iva = 0.16;
+        }else{
+            MenuPrincipal.CotizacionActual.iva = 0.0;
+        }
+        
         MenuPrincipal.CotizacionActual.cliente = MenuPrincipal.ClientesMuestra.get(listaNombres.getSelectedIndex());
         PasoDos mp = new PasoDos();
         //[550, 421]
@@ -182,6 +199,7 @@ public class PasoUno extends javax.swing.JPanel {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         MenuPrincipal.CotizacionActual.cliente = null;
+        
         
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
         mi.setLocation(412,0);//posicion del panel ajustado al frame
@@ -202,6 +220,7 @@ public class PasoUno extends javax.swing.JPanel {
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JCheckBox checkIVA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> listaNombres;
     // End of variables declaration//GEN-END:variables

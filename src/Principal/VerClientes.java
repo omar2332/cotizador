@@ -333,9 +333,14 @@ public class VerClientes extends javax.swing.JPanel {
         if(TablaInventario.getSelectedRow() >= 0){
             if(TablaInventario.getSelectedRows().length == 1){
                 String b = a[TablaInventario.getSelectedRow()][0].replaceAll("[a-zA-Z]", "");
-                EditarCliente mp = new EditarCliente(-Integer.parseInt(b));
-                mp.setLocation(390,230);//posicion del panel ajustado al frame
-                mp.setSize(470, 270);//tamaño del panel ajustado al frame
+                EditarCliente mp = null;
+                try {
+                    mp = new EditarCliente(-Integer.parseInt(b));
+                } catch (ClassNotFoundException | SQLException ex) {
+                    Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                mp.setLocation(333,197);//posicion del panel ajustado al frame
+                mp.setSize(583, 325);//tamaño del panel ajustado al frame
                 /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
                 panelPrincipal.removeAll();
                 panelPrincipal.add(mp);

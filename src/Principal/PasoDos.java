@@ -14,11 +14,11 @@ public class PasoDos extends javax.swing.JPanel{
     /**
      * Creates new form PasoDos
      */
-    public int contador = 8;
+    
     public PasoDos() {
         initComponents();
         labelDescuentoText.setText("Descuento: 0%");
-    
+        labelVigencia.setText("8");
         
     }
 
@@ -57,8 +57,18 @@ public class PasoDos extends javax.swing.JPanel{
         jLabel2.setText("Vigencia (Numero de dias)");
 
         btnResta.setText("-");
+        btnResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaActionPerformed(evt);
+            }
+        });
 
         btnSuma.setText("+");
+        btnSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumaActionPerformed(evt);
+            }
+        });
 
         labelDescuentoText.setText("Descuento");
 
@@ -168,6 +178,8 @@ public class PasoDos extends javax.swing.JPanel{
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         MenuPrincipal.CotizacionActual.cliente = null;
+        MenuPrincipal.CotizacionActual.descuento = 0.0 ;
+        MenuPrincipal.CotizacionActual.vigencia = 8;
         
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
         mi.setLocation(412,0);//posicion del panel ajustado al frame
@@ -219,6 +231,23 @@ public class PasoDos extends javax.swing.JPanel{
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
         
+        MenuPrincipal.CotizacionActual.descuento = sliderDescuento.getValue()*0.01 ;
+        MenuPrincipal.CotizacionActual.vigencia = Integer.parseInt(labelVigencia.getText());
+        
+        System.out.println( MenuPrincipal.CotizacionActual.vigencia  );
+        // paso 3
+        
+        PasoTres mp = new PasoTres();
+        //[550, 421]
+        mp.setLocation(125,119);//posicion del panel ajustado al frame
+        mp.setSize(1000, 511);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
         
     }//GEN-LAST:event_btnContinuarActionPerformed
 
@@ -227,6 +256,22 @@ public class PasoDos extends javax.swing.JPanel{
         labelDescuentoText.setText("Descuento: " + String.valueOf(sliderDescuento.getValue()) + "%");
         
     }//GEN-LAST:event_sliderDescuentoStateChanged
+
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+        // TODO add your handling code here:
+        
+        int valor =  Integer.parseInt(labelVigencia.getText()) - 1;
+        if(valor < 0){
+            return;
+        }
+        labelVigencia.setText(String.valueOf(valor));
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
+        // TODO add your handling code here:
+        int valor =  Integer.parseInt(labelVigencia.getText()) + 1;
+        labelVigencia.setText(String.valueOf(valor));
+    }//GEN-LAST:event_btnSumaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

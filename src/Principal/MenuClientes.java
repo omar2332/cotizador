@@ -35,7 +35,7 @@ public class MenuClientes extends javax.swing.JPanel {
         btnRegresar = new javax.swing.JButton();
         btnVerClientes = new javax.swing.JButton();
         btnAltaCliente = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnEditarCliente = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(426, 720));
@@ -72,8 +72,13 @@ public class MenuClientes extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(153, 153, 153));
-        jButton5.setText("Editar clientes");
+        btnEditarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        btnEditarCliente.setText("Editar clientes");
+        btnEditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,7 +101,7 @@ public class MenuClientes extends javax.swing.JPanel {
                             .addComponent(btnVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAltaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,7 +118,7 @@ public class MenuClientes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnAltaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(288, Short.MAX_VALUE))
@@ -169,12 +174,28 @@ public class MenuClientes extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnAltaClienteActionPerformed
 
+    private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal.decisionAltaCliente = false;
+        EditarCliente mi = new EditarCliente();
+        mi.setLocation(333,197);//posicion del panel ajustado al frame
+        mi.setSize(583, 325);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        panelPrincipal.removeAll();
+        panelPrincipal.add(mi);
+        panelPrincipal.setLocation(0,0);
+        panelPrincipal.setSize(1250, 720);
+        panelPrincipal.revalidate();
+        panelPrincipal.repaint();
+        
+    }//GEN-LAST:event_btnEditarClienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAltaCliente;
+    private javax.swing.JButton btnEditarCliente;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerClientes;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
