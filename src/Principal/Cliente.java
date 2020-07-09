@@ -1,5 +1,7 @@
 package Principal;
 // Julio Sorprendeme
+//Que pez.
+//khjjkhkhkj
 
 public class Cliente {
     public int id_cliente;
