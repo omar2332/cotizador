@@ -21,6 +21,15 @@ public class PasoDos extends javax.swing.JPanel{
         labelVigencia.setText("8");
         
     }
+    
+    public PasoDos(int vigencia, double descuento) {
+        initComponents();
+        labelDescuentoText.setText("Descuento: "+ String.valueOf(descuento*100)+ "%");
+        labelVigencia.setText(String.valueOf(vigencia));
+        int value = (int)(100*descuento); 
+        sliderDescuento.setValue( value  );
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,7 +140,7 @@ public class PasoDos extends javax.swing.JPanel{
                 .addComponent(btnResta, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSuma)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -177,9 +186,8 @@ public class PasoDos extends javax.swing.JPanel{
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal.CotizacionActual.cliente = null;
-        MenuPrincipal.CotizacionActual.descuento = 0.0 ;
-        MenuPrincipal.CotizacionActual.vigencia = 8;
+        MenuPrincipal.CotizacionActual = null;
+        
         
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
         mi.setLocation(412,0);//posicion del panel ajustado al frame
@@ -234,7 +242,7 @@ public class PasoDos extends javax.swing.JPanel{
         MenuPrincipal.CotizacionActual.descuento = sliderDescuento.getValue()*0.01 ;
         MenuPrincipal.CotizacionActual.vigencia = Integer.parseInt(labelVigencia.getText());
         
-        System.out.println( MenuPrincipal.CotizacionActual.vigencia  );
+        //System.out.println( MenuPrincipal.CotizacionActual.vigencia  );
         // paso 3
         
         PasoTres mp = new PasoTres();

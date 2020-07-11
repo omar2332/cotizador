@@ -7,7 +7,7 @@ import java.util.List;
 public class Cotizacion {
     public String fecha;
     public int posc,id_coti,vigencia = 8;
-    public double iva,descuento;
+    public double iva,descuento,total,subtotal;
     public Cliente cliente;
     public List<Productos> listaProducto;
 

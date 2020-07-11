@@ -8,6 +8,12 @@ package Principal;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 /**
@@ -22,17 +28,20 @@ public class PasoTres extends javax.swing.JPanel {
     public javax.swing.JTextField[] entrada; //campo de datos
     public javax.swing.JLabel[] xs; //marca de las Xis
     public javax.swing.JPanel panel[];
+    public int n = MenuPrincipal.ProdutosMuestra.size();
     
-    public PasoTres() {
+    public PasoTres(List<Productos> produtos) { // para cuando regresa y colocar de nuevo los productos
+       
+        
         initComponents();
         
-        panelInformacion.setPreferredSize(new Dimension(1000, 10*100));
-        panelInformacion.setLayout(new GridLayout(10,1,300,10));
-        entrada =  new javax.swing.JTextField[10];
-        xs = new javax.swing.JLabel[10];
-        panel = new javax.swing.JPanel[10];
+        panelInformacion.setPreferredSize(new Dimension(900, n*100));
+        panelInformacion.setLayout(new GridLayout(n,1,300,10));
+        entrada =  new javax.swing.JTextField[n];
+        xs = new javax.swing.JLabel[n];
+        panel = new javax.swing.JPanel[n];
         
-        for(int i = 0; i<10;i++){
+        for(int i = 0; i<n;i++){
             xs[i] = new javax.swing.JLabel();
             
             
@@ -40,7 +49,15 @@ public class PasoTres extends javax.swing.JPanel {
             //xs[i].setPreferredSize(new Dimension(900, 100));
             panel[i] = new javax.swing.JPanel();
             panel[i].setSize(new Dimension(1000, 10));
-            String texto =  "JLabel con varias linea";
+            
+            String texto = MenuPrincipal.ProdutosMuestra.get(i).descripcion;
+            
+            for(int j = 0; j<produtos.size();j++){
+                
+                if(produtos.get(j).id_productos == MenuPrincipal.ProdutosMuestra.get(i).id_productos){
+                    entrada[i].setText( String.valueOf(produtos.get(j).cantidad));
+                }
+            }
             
             String separacion[] = texto.split("");
             
@@ -48,7 +65,60 @@ public class PasoTres extends javax.swing.JPanel {
             
             for( int j = 0; j<separacion.length; j++){
                 
-                if(j%6 == 0 && j!=0){
+                if(j%100 == 0 && j!=0){
+                    prueba += separacion[j] +"-<br>" ;
+                }else{
+                    prueba+= separacion[j];
+                }
+                
+            }
+            
+            texto = "<html><body>" + prueba +  "</body></html>";
+            
+            xs[i].setText(texto);
+            entrada[i].setPreferredSize(new Dimension(50, 35));
+            
+            panel[i].add(xs[i]); //
+            panel[i].add(entrada[i]);
+            
+            panelInformacion.add(panel[i]);
+            
+            
+            
+        }
+        MenuPrincipal.CotizacionActual.listaProducto =  new ArrayList<Productos>();
+        
+        
+    }
+    
+    public PasoTres() {
+        
+        MenuPrincipal.CotizacionActual.listaProducto =  new ArrayList<Productos>();
+        initComponents();
+        
+        panelInformacion.setPreferredSize(new Dimension(900, n*100));
+        panelInformacion.setLayout(new GridLayout(n,1,300,10));
+        entrada =  new javax.swing.JTextField[n];
+        xs = new javax.swing.JLabel[n];
+        panel = new javax.swing.JPanel[n];
+        
+        for(int i = 0; i<n;i++){
+            xs[i] = new javax.swing.JLabel();
+            
+            
+            entrada[i] = new javax.swing.JTextField();
+            //xs[i].setPreferredSize(new Dimension(900, 100));
+            panel[i] = new javax.swing.JPanel();
+            panel[i].setSize(new Dimension(1000, 10));
+            String texto = MenuPrincipal.ProdutosMuestra.get(i).descripcion;
+            
+            String separacion[] = texto.split("");
+            
+            String prueba = "";
+            
+            for( int j = 0; j<separacion.length; j++){
+                
+                if(j%100 == 0 && j!=0){
                     prueba += separacion[j] +"-<br>" ;
                 }else{
                     prueba+= separacion[j];
@@ -85,6 +155,12 @@ public class PasoTres extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelInformacion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelInformacionLayout = new javax.swing.GroupLayout(panelInformacion);
         panelInformacion.setLayout(panelInformacionLayout);
@@ -99,36 +175,155 @@ public class PasoTres extends javax.swing.JPanel {
 
         scroll.setViewportView(panelInformacion);
 
-        jLabel1.setText("Productosas asd");
+        jLabel1.setText("Seleccionar cantidad de productos en la cotizacion, los que esten en blanco no saldran en la cotizacion.");
+
+        jLabel2.setText("Seleccion de Productos");
+
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(453, 453, 453)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(btnRegresar)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnCancelar)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnAceptar))
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegresar)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnAceptar))
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        if(!MenuPrincipal.CotizacionActual.listaProducto.isEmpty()){
+            try {
+                MenuPrincipal.consultas.CargaDeProducto();
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(PasoTres.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        PasoDos mp = new PasoDos(MenuPrincipal.CotizacionActual.vigencia,MenuPrincipal.CotizacionActual.descuento);
+        //[550, 421]
+        mp.setLocation(350,129);//posicion del panel ajustado al frame
+        mp.setSize(550, 421);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        MenuPrincipal.CotizacionActual = null;
+        MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
+        mi.setLocation(412,0);//posicion del panel ajustado al frame
+        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mi);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+         
+        
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        try {
+            // TODO add your handling code here:
+            MenuPrincipal.consultas.CargaDeProducto();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(PasoTres.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(int i = 0; i<n;i++){
+            String temp = entrada[i].getText();
+            
+            if(!temp.isEmpty()){
+                Productos entrada2 = MenuPrincipal.ProdutosMuestra.get(i);
+                entrada2.cantidad = Integer.parseInt(temp);
+                MenuPrincipal.CotizacionActual.listaProducto.add(entrada2);
+            }
+            
+        }
+        
+        if(MenuPrincipal.CotizacionActual.listaProducto.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No se selecciono ningun producto");
+            return;
+        }
+        
+        ResumenCotizacion mp = new ResumenCotizacion();
+        //[550, 421]
+        mp.setLocation(213,70);//posicion del panel ajustado al frame
+        mp.setSize(823, 600);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+        
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panelInformacion;
     private javax.swing.JScrollPane scroll;

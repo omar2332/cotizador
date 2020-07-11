@@ -7,6 +7,9 @@ package Principal;
 
 import static Principal.MenuPrincipal.panelPrincipal;
 import java.awt.Image;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -21,7 +24,13 @@ public class MenuInicial extends javax.swing.JPanel {
     public MenuInicial() {
         
         initComponents();
-
+        try {
+            MenuPrincipal.consultas.CargaDeProducto();//cargar base de datos con productos
+            MenuPrincipal.consultas.CargaClientes();//cargaClientes
+            MenuPrincipal.CotizacionActual = new Cotizacion(MenuPrincipal.consultas.UnID("Select count(*) From cotizacion") + 1,0.16,0.00); //inicializamos cotizacion con datos actuales
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(MenuInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

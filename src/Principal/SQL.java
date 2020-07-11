@@ -9,14 +9,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class SQL {
    final String contraseña = "123";
    final String cadenaConexion = "jdbc:postgresql://localhost:5432/cotizador?";
-   Connection conexion;
-   Statement sentencia;//manejo o lectura
-   ResultSet resultado;//manipulacion de registros
+   private Connection conexion;
+   private Statement sentencia;//manejo o lectura
+   private ResultSet resultado;//manipulacion de registros
+
+    public Connection getConexion() {
+       try {
+           conexion = DriverManager.getConnection(cadenaConexion, "postgres", contraseña);
+       } catch (SQLException ex) {
+           Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        return conexion;
+    }
+   
    
    
    

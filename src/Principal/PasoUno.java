@@ -31,13 +31,14 @@ public class PasoUno extends javax.swing.JPanel {
     }
     
     public PasoUno() {
+        
         initComponents();
         String clientesNombres[] = new String[MenuPrincipal.ClientesMuestra.size()];
         for(int i = 0; i<MenuPrincipal.ClientesMuestra.size();i++){
             clientesNombres[i] = MenuPrincipal.ClientesMuestra.get(i).nombre;
         }
         listaNombres.setModel(new javax.swing.DefaultComboBoxModel<>(clientesNombres));
-        
+        checkIVA.doClick();
         
     }
 
@@ -198,7 +199,7 @@ public class PasoUno extends javax.swing.JPanel {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal.CotizacionActual.cliente = null;
+        MenuPrincipal.CotizacionActual = null;
         
         
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
