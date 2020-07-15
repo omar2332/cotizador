@@ -200,44 +200,22 @@ public class PasoDos extends javax.swing.JPanel{
         MenuPrincipal.panelPrincipal.revalidate();
         MenuPrincipal.panelPrincipal.repaint();
     }//GEN-LAST:event_btnCancelarActionPerformed
-     private boolean isNumber(char ch){
-        return ch >= '0' && ch <= '9';
-    }
 
-    private boolean isValidSignal(char ch){
-        if( (labelVigencia.getText() == null || "".equals(labelVigencia.getText().trim()) ) && ch == '-'){
-            return true;
-        }
-
-        return false;
-    }
-
-    private boolean validatePoint(char ch){
-        if(ch != '.'){
-            return false;
-        }
-
-        if(labelVigencia.getText() == null || "".equals(labelVigencia.getText().trim())){
-            labelVigencia.setText("0.");
-            return false;
-        }else if("-".equals(labelVigencia.getText())){
-            labelVigencia.setText("-0.");
-        }
-
-        return true;
-    }
     
     private void labelVigenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelVigenciaKeyTyped
         // TODO add your handling code here:
+        Validaciones validaciones = new Validaciones();
         char ch = evt.getKeyChar();
 
-                if (!isNumber(ch) && !isValidSignal(ch) && !validatePoint(ch)  && ch != '\b') {
+                if ( !validaciones.isNumber(ch) && !validaciones.isValidSignal(ch,labelVigencia) && !validaciones.validatePoint(ch,labelVigencia)  && ch != '\b') {
                     evt.consume();
                 }
     }//GEN-LAST:event_labelVigenciaKeyTyped
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
+        
+       
         
         MenuPrincipal.CotizacionActual.descuento = sliderDescuento.getValue()*0.01 ;
         MenuPrincipal.CotizacionActual.vigencia = Integer.parseInt(labelVigencia.getText());

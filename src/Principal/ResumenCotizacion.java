@@ -34,14 +34,17 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     public int n = MenuPrincipal.CotizacionActual.listaProducto.size();
     public boolean guardado = true;
     
+    public n2t numeroletras = new n2t();
+    
+    
     public ResumenCotizacion() {
         initComponents();
-        Date date = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //tomamos la fecha actual 
-        DecimalFormat df = new DecimalFormat("###,###.00");
         
-        MenuPrincipal.CotizacionActual.fecha=dateFormat.format(date);
-        labelFecha.setText("Fecha: " + dateFormat.format(date));
+        
+        DecimalFormat df = new DecimalFormat("###,###.00");
+        DecimalFormat df2 = new DecimalFormat("###.00");
+        MenuPrincipal.CotizacionActual.setFechaActual();
+        labelFecha.setText("Fecha: " + MenuPrincipal.CotizacionActual.fecha);
         labelCotizacion.setText("Cotizacion: SISA -" +String.valueOf(MenuPrincipal.CotizacionActual.id_coti));
         labelVigencia.setText("Vigencia " + String.valueOf( MenuPrincipal.CotizacionActual.vigencia) + " dias");
         
@@ -100,6 +103,19 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         MenuPrincipal.CotizacionActual.descuento = calcularDescuento();
         MenuPrincipal.CotizacionActual.total = calcularTotal(MenuPrincipal.CotizacionActual.descuento,MenuPrincipal.CotizacionActual.iva);
         double total = MenuPrincipal.CotizacionActual.total;
+        
+        
+        
+        String total_string = String.valueOf(df2.format(total));
+        String[] total_temp = total_string.split("\\.");
+       
+        
+       String totalletras = numeroletras.convertirLetras( Integer.parseInt(total_temp[0]), 
+                Integer.parseInt(total_temp[1]));
+        System.out.println("prueba");
+        
+        System.out.println(totalletras.toUpperCase());
+        
         labelSubtotal.setText("Subtotal: " + df.format(subtotal));
         labelTotal.setText("Total: "+ df.format(total));
         labelIVA.setText("IVA: " + df.format(MenuPrincipal.CotizacionActual.iva));
@@ -135,7 +151,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         double descuento = 0.0;
         
         descuento += MenuPrincipal.CotizacionActual.descuento*MenuPrincipal.CotizacionActual.subtotal;         
-        System.out.print(descuento);
+        
         return descuento;
     }
     

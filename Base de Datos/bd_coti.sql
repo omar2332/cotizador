@@ -10,7 +10,14 @@ create table clientes(
 	id_cliente serial not null,
 	nombre text not null,
 	apellido text not null,
-	empresa text not null
+	empresa text not null,
+	direccion text,
+	email text,
+	contacto text,
+	telefono varchar(20),
+	rfc varchar(13),
+	domicilio text,
+	embarcar text
 
 );
 
@@ -22,7 +29,8 @@ create table cotizacion(
 	total numeric(10,2),
 	subtotal numeric(10,2),
 	iva numeric(10,2),
-	vigencia integer
+	vigencia integer,
+	num_letras text
 
 );
 
@@ -52,10 +60,10 @@ insert into productos(descripcion,precio) values ('Libro Analisis Matematico', 4
 insert into productos(descripcion,precio) values ('Libro de Matematicas Discretas', 500);
 
 insert into clientes(nombre,apellido,empresa) values ('Jorge Luis', 'Programador', 'RBA');
-insert into cotizacion(id_cliente,fecha_creacion,subtotal,iva,descuento,total,vigencia) values (1,"10/05/2020",1400,0,0,1400,8);
+insert into cotizacion(id_cliente,fecha_creacion,subtotal,iva,descuento,total,vigencia) values (1,'10/05/2020',1400,0,0,1400,8);
 
-insert into cot_productos(id_cotizacion,id_producto,cantidad,cantidadXProducto,comentario) values (1,1,2,600,"Sin comentarios");
-insert into cot_productos(id_cotizacion,id_producto,cantidad,cantidadXProducto,comentario) values (1,2,2,800,"Sin comentarios")
+insert into cot_productos(id_cotizacion,id_producto,cantidad,cantidadXProducto,comentario) values (1,1,2,600,'Sin comentarios');
+insert into cot_productos(id_cotizacion,id_producto,cantidad,cantidadXProducto,comentario) values (1,2,2,800,'Sin comentarios');
 
 
 

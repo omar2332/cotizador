@@ -14,8 +14,8 @@ import java.util.logging.Logger;
 
 
 public class SQL {
-   final String contraseña = "123";
-   final String cadenaConexion = "jdbc:postgresql://localhost:5432/cotizador?";
+   private final String contraseña = "123";
+   private final String cadenaConexion = "jdbc:postgresql://localhost:5432/cotizador?";
    private Connection conexion;
    private Statement sentencia;//manejo o lectura
    private ResultSet resultado;//manipulacion de registros
@@ -279,6 +279,8 @@ public class SQL {
         return lista;
    }
    
+   
+   // Es para hacer una insercion o modificacion en la base de datos, la funcion es reutilizable.
    public boolean cambiosProducto(String consultaSQL) throws ClassNotFoundException, SQLException{
        
         Class.forName("org.postgresql.Driver");

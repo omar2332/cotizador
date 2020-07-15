@@ -36,6 +36,7 @@ public class MenuClientes extends javax.swing.JPanel {
         btnVerClientes = new javax.swing.JButton();
         btnAltaCliente = new javax.swing.JButton();
         btnEditarCliente = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(426, 720));
@@ -80,6 +81,14 @@ public class MenuClientes extends javax.swing.JPanel {
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(153, 153, 153));
+        btnEliminar.setText("Regresar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,7 +110,8 @@ public class MenuClientes extends javax.swing.JPanel {
                             .addComponent(btnVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAltaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,8 +130,10 @@ public class MenuClientes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,14 +168,16 @@ public class MenuClientes extends javax.swing.JPanel {
         panelPrincipal.setSize(1250, 720);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
+        
     }//GEN-LAST:event_btnVerClientesActionPerformed
 
     private void btnAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaClienteActionPerformed
         // TODO add your handling code here:
+        
         MenuPrincipal.decisionAltaCliente = false;
         AltaCliente mi = new AltaCliente();
-        mi.setLocation(425,210);//posicion del panel ajustado al frame
-        mi.setSize(400, 300);//tamaño del panel ajustado al frame
+        mi.setLocation(194,65);//posicion del panel ajustado al frame
+        mi.setSize(862, 590);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         panelPrincipal.removeAll();
         panelPrincipal.add(mi);
@@ -190,10 +204,18 @@ public class MenuClientes extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAltaCliente;
     private javax.swing.JButton btnEditarCliente;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerClientes;
     private javax.swing.JLabel jLabel1;
