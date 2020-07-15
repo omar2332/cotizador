@@ -68,7 +68,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1250, 720));
         setMinimumSize(new java.awt.Dimension(1250, 720));
 
-        panelPrincipal.setBackground(new java.awt.Color(204, 204, 204));
+        panelPrincipal.setBackground(new java.awt.Color(65, 65, 65));
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);

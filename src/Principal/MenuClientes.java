@@ -29,101 +29,117 @@ public class MenuClientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         btnVerClientes = new javax.swing.JButton();
         btnAltaCliente = new javax.swing.JButton();
         btnEditarCliente = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(65, 65, 65));
         setMaximumSize(new java.awt.Dimension(426, 720));
         setMinimumSize(new java.awt.Dimension(426, 720));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("COTIZADOR");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/logo (6).png"))); // NOI18N
-
-        jLabel2.setText("Clientes");
-
-        btnRegresar.setBackground(new java.awt.Color(153, 153, 153));
+        btnRegresar.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setForeground(new java.awt.Color(204, 204, 204));
         btnRegresar.setText("Regresar");
+        btnRegresar.setBorder(null);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
 
-        btnVerClientes.setBackground(new java.awt.Color(153, 153, 153));
+        btnVerClientes.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerClientes.setForeground(new java.awt.Color(204, 204, 204));
         btnVerClientes.setText("Ver clientes");
+        btnVerClientes.setBorder(null);
         btnVerClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerClientesActionPerformed(evt);
             }
         });
 
-        btnAltaCliente.setBackground(new java.awt.Color(153, 153, 153));
+        btnAltaCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnAltaCliente.setForeground(new java.awt.Color(204, 204, 204));
         btnAltaCliente.setText("Alta Clientes");
+        btnAltaCliente.setBorder(null);
         btnAltaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAltaClienteActionPerformed(evt);
             }
         });
 
-        btnEditarCliente.setBackground(new java.awt.Color(153, 153, 153));
+        btnEditarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnEditarCliente.setForeground(new java.awt.Color(204, 204, 204));
         btnEditarCliente.setText("Editar clientes");
+        btnEditarCliente.setBorder(null);
         btnEditarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarClienteActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(153, 153, 153));
-        btnEliminar.setText("Regresar");
+        btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
+        btnEliminar.setForeground(new java.awt.Color(204, 204, 204));
+        btnEliminar.setText("Eliminar Cliente");
+        btnEliminar.setBorder(null);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("CLIENTES");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("COTIZADOR");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/logo (6).png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(98, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(172, 172, 172))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(153, 153, 153)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAltaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(48, 48, 48)
+                .addGap(23, 23, 23)
                 .addComponent(btnVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAltaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +149,7 @@ public class MenuClientes extends javax.swing.JPanel {
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,8 +192,8 @@ public class MenuClientes extends javax.swing.JPanel {
         
         MenuPrincipal.decisionAltaCliente = false;
         AltaCliente mi = new AltaCliente();
-        mi.setLocation(194,65);//posicion del panel ajustado al frame
-        mi.setSize(862, 590);//tamaño del panel ajustado al frame
+        mi.setLocation(194,50);//posicion del panel ajustado al frame
+        mi.setSize(862, 620);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         panelPrincipal.removeAll();
         panelPrincipal.add(mi);
@@ -192,8 +208,8 @@ public class MenuClientes extends javax.swing.JPanel {
         // TODO add your handling code here:
         MenuPrincipal.decisionAltaCliente = false;
         EditarCliente mi = new EditarCliente();
-        mi.setLocation(333,197);//posicion del panel ajustado al frame
-        mi.setSize(583, 325);//tamaño del panel ajustado al frame
+        mi.setLocation(185,25);//posicion del panel ajustado al frame
+        mi.setSize(879, 670);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         panelPrincipal.removeAll();
         panelPrincipal.add(mi);

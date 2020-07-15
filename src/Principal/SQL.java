@@ -54,6 +54,35 @@ public class SQL {
        return IdEntero;
    }
    
+   public Cotizacion CargaCotizacionByID(int idCotizacion) throws ClassNotFoundException, SQLException{
+       Class.forName("org.postgresql.Driver");
+        
+       conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
+       sentencia = conexion.createStatement();
+       String consultaSQL = "SELECT* FROM cotizacion WHERE id_cotizacion = "+String.valueOf(idCotizacion);
+       resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
+       
+       while(resultado.next()){
+           int id_cliente = Integer.parseInt(resultado.getString("id_cliente"));   
+           String fecha = resultado.getString("fecha_creacion");
+           Double iva = Double.parseDouble(resultado.getString("iva")) , descuento = Double.parseDouble(resultado.getString("descuento"));
+           
+       }
+       
+       
+       Cotizacion cotizacion = null;
+               
+       
+       
+       
+       conexion.close();
+       resultado.close();
+       sentencia.close();
+       return cotizacion;
+       
+       
+   }
+   
    public void CargaDeProducto() throws ClassNotFoundException, SQLException{
         MenuPrincipal.ProdutosMuestra.clear();
         Class.forName("org.postgresql.Driver");
@@ -99,18 +128,20 @@ public class SQL {
    }
    
    public Cliente DatosCliente(int id) throws ClassNotFoundException, SQLException{
+       
         Class.forName("org.postgresql.Driver");
         Cliente cliente = null;
         conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
         sentencia = conexion.createStatement();
         String consultaSQL = "Select * From  clientes where id_cliente = " + String.valueOf(id);
         resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
-         while(resultado.next()){
+        while(resultado.next()){
             
             
             int a = Integer.parseInt(resultado.getString("id_cliente"));     
-            String puesto = "",empresa = "",nombre = "";
             
+            String puesto = "",empresa = "",nombre = "",rfc = "",domicilio="",
+                    embarcar ="",contacto="",telefono="",correo =""  ;
             
             
             if(resultado.getString("apellido").equals("")){
@@ -131,7 +162,49 @@ public class SQL {
                 nombre = resultado.getString("nombre");
             }
             
+             if(resultado.getString("rfc").equals("")){
+                rfc = "Null";
+            }else{
+                rfc = resultado.getString("rfc");
+            }
+            
+            if(resultado.getString("domicilio").equals("")){
+                domicilio = "Null";
+            }else{
+                domicilio = resultado.getString("domicilio");
+            }
+            
+            if(resultado.getString("embarcar").equals("")){
+                embarcar = "Null";
+            }else{
+                embarcar = resultado.getString("embarcar");
+            }
+            
+            if(resultado.getString("contacto").equals("")){
+                contacto = "Null";
+            }else{
+                contacto = resultado.getString("contacto");
+            }
+            
+            if(resultado.getString("telefono").equals("")){
+                telefono = "Null";
+            }else{
+                telefono = resultado.getString("telefono");
+            }
+            
+            if(resultado.getString("email").equals("")){
+                correo = "Null";
+            }else{
+                correo = resultado.getString("email");
+            }
+            
             cliente = new Cliente(a,nombre,puesto,empresa);
+            cliente.setCorreo(correo);
+            cliente.setRfc(rfc);
+            cliente.setDomicilio(domicilio);
+            cliente.setTelefono(telefono);
+            cliente.setContacto(contacto);
+            cliente.setEmbarcar(embarcar);
             
             
             
@@ -162,10 +235,11 @@ public class SQL {
             
             
             int a = Integer.parseInt(resultado.getString("id_cliente"));     
-            String puesto = "",empresa = "",nombre = "";
+            String puesto = "",empresa = "",nombre = "",rfc = "",domicilio="",
+                    embarcar ="",contacto="",telefono="",correo =""  ;
             
             
-            
+            //validacion de la base de datos, si esta vacio le ponemos null como identificador
             if(resultado.getString("apellido").equals("")){
                 puesto = "Null";
             }else{
@@ -184,7 +258,55 @@ public class SQL {
                 nombre = resultado.getString("nombre");
             }
             
+            if(resultado.getString("rfc").equals("")){
+                rfc = "Null";
+            }else{
+                rfc = resultado.getString("rfc");
+            }
+            
+            if(resultado.getString("domicilio").equals("")){
+                domicilio = "Null";
+            }else{
+                domicilio = resultado.getString("domicilio");
+            }
+            
+            if(resultado.getString("embarcar").equals("")){
+                embarcar = "Null";
+            }else{
+                embarcar = resultado.getString("embarcar");
+            }
+            
+            if(resultado.getString("contacto").equals("")){
+                contacto = "Null";
+            }else{
+                contacto = resultado.getString("contacto");
+            }
+            
+            if(resultado.getString("telefono").equals("")){
+                telefono = "Null";
+            }else{
+                telefono = resultado.getString("telefono");
+            }
+            
+            if(resultado.getString("email").equals("")){
+                correo = "Null";
+            }else{
+                correo = resultado.getString("email");
+            }
+            
+            
+            
             Cliente cliente = new Cliente(a,nombre,puesto,empresa);
+            
+            cliente.setCorreo(correo);
+            cliente.setRfc(rfc);
+            cliente.setDomicilio(domicilio);
+            cliente.setTelefono(telefono);
+            cliente.setContacto(contacto);
+            cliente.setEmbarcar(embarcar);
+            
+            
+            
             MenuPrincipal.ClientesMuestra.add(cliente);
             
             

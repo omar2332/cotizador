@@ -26,15 +26,17 @@ public class VerClientes extends javax.swing.JPanel {
     public VerClientes() {
         initComponents();
         btnEditarCliente.setEnabled(false);
-         a = new String[MenuPrincipal.ClientesMuestra.size()][4];
+         a = new String[MenuPrincipal.ClientesMuestra.size()][6];
          
         //llenado de la tabla
         for(int i = 0;i<MenuPrincipal.ClientesMuestra.size();i++){
             
             a[i][0] = "Cliente-" + MenuPrincipal.ClientesMuestra.get(i).id_cliente;
             a[i][1] = MenuPrincipal.ClientesMuestra.get(i).nombre;
-            a[i][2] = MenuPrincipal.ClientesMuestra.get(i).empresa;
-            a[i][3] = MenuPrincipal.ClientesMuestra.get(i).puesto;
+            a[i][2] = MenuPrincipal.ClientesMuestra.get(i).correo;
+            a[i][3] = MenuPrincipal.ClientesMuestra.get(i).empresa;
+            a[i][4] = MenuPrincipal.ClientesMuestra.get(i).telefono;
+            a[i][5] = MenuPrincipal.ClientesMuestra.get(i).rfc;
  
         }
         
@@ -42,7 +44,7 @@ public class VerClientes extends javax.swing.JPanel {
            TablaInventario.setModel(new javax.swing.table.DefaultTableModel(
             a,
             new String [] {
-                "ID", "Nombre", "Empresa","Puesto"
+                "ID", "Nombre","Email", "Empresa","telefono","RFC"
             }
             ) {
             boolean[] canEdit = new boolean [] {
@@ -54,10 +56,13 @@ public class VerClientes extends javax.swing.JPanel {
             }
          });
        
-       TablaInventario.getColumnModel().getColumn(0).setPreferredWidth(100);
-       TablaInventario.getColumnModel().getColumn(1).setPreferredWidth(550);
-       TablaInventario.getColumnModel().getColumn(2).setPreferredWidth(150);
-       TablaInventario.getColumnModel().getColumn(3).setPreferredWidth(150);
+       TablaInventario.getColumnModel().getColumn(0).setPreferredWidth(80);
+       TablaInventario.getColumnModel().getColumn(1).setPreferredWidth(250);
+       TablaInventario.getColumnModel().getColumn(2).setPreferredWidth(250);
+       TablaInventario.getColumnModel().getColumn(3).setPreferredWidth(100);
+       TablaInventario.getColumnModel().getColumn(4).setPreferredWidth(100);
+       TablaInventario.getColumnModel().getColumn(5).setPreferredWidth(100);
+      
     }
 
     /**
@@ -335,12 +340,13 @@ public class VerClientes extends javax.swing.JPanel {
                 String b = a[TablaInventario.getSelectedRow()][0].replaceAll("[a-zA-Z]", "");
                 EditarCliente mp = null;
                 try {
+                    
                     mp = new EditarCliente(-Integer.parseInt(b));
                 } catch (ClassNotFoundException | SQLException ex) {
                     Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                mp.setLocation(333,197);//posicion del panel ajustado al frame
-                mp.setSize(583, 325);//tamaño del panel ajustado al frame
+                mp.setLocation(185,25);//posicion del panel ajustado al frame
+                mp.setSize(879, 670);//tamaño del panel ajustado al frame
                 /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
                 panelPrincipal.removeAll();
                 panelPrincipal.add(mp);

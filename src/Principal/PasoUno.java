@@ -162,8 +162,8 @@ public class PasoUno extends javax.swing.JPanel {
         // TODO add your handling code here:
         MenuPrincipal.decisionAltaCliente = true;
         AltaCliente mi = new AltaCliente();
-        mi.setLocation(194,65);//posicion del panel ajustado al frame
-        mi.setSize(862, 590);//tamaño del panel ajustado al frame
+        mi.setLocation(194,50);//posicion del panel ajustado al frame
+        mi.setSize(862, 620);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
         MenuPrincipal.panelPrincipal.add(mi);

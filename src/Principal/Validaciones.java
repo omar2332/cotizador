@@ -8,13 +8,16 @@ package Principal;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-/**
- *
- * @author HP
- */
+
 public class Validaciones {
     
-    public static boolean isValidEmailAddress(String email) { //Para validar el EMAIl
+    
+    public boolean validarRfc(String rfc){
+        rfc=rfc.toUpperCase().trim();
+        return rfc.toUpperCase().matches("[A-Z]{4}[0-9]{6}[A-Z0-9]{3}");
+    }//Cierra método validarRFC
+    
+    public boolean isValidEmailAddress(String email) { //Para validar el EMAIl
         boolean result = true;  
         try {
            InternetAddress emailAddr = new InternetAddress(email);

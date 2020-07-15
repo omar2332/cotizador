@@ -37,7 +37,7 @@ public class AltaCliente extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         labelPuesto = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAlta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         labelNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -45,136 +45,194 @@ public class AltaCliente extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        labelDomicilio = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         labelRFC = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        labelTel = new javax.swing.JTextField();
+        labelTelefono = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        labelEmbarcar = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         labelEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        labelContacto = new javax.swing.JTextField();
 
-        setMaximumSize(new java.awt.Dimension(862, 590));
-        setMinimumSize(new java.awt.Dimension(862, 590));
+        setBackground(new java.awt.Color(65, 65, 65));
+        setMaximumSize(new java.awt.Dimension(862, 620));
+        setMinimumSize(new java.awt.Dimension(862, 620));
+        setPreferredSize(new java.awt.Dimension(862, 620));
 
+        labelEmpresa.setBackground(new java.awt.Color(102, 102, 102));
+        labelEmpresa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelEmpresa.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Puesto:");
 
+        labelPuesto.setBackground(new java.awt.Color(102, 102, 102));
+        labelPuesto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelPuesto.setForeground(new java.awt.Color(204, 204, 204));
+
+        btnRegresar.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegresar.setForeground(new java.awt.Color(204, 204, 204));
         btnRegresar.setText("Regresar");
+        btnRegresar.setBorder(null);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Dar de Alta");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAlta.setBackground(new java.awt.Color(51, 51, 51));
+        btnAlta.setForeground(new java.awt.Color(204, 204, 204));
+        btnAlta.setText("Dar de Alta");
+        btnAlta.setBorder(null);
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAltaActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Alta Cliente");
 
+        labelNombre.setBackground(new java.awt.Color(102, 102, 102));
+        labelNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelNombre.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Nombre*:");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Empresa:");
 
-        jLabel5.setText("Direccion:");
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setText("Domicilio:");
 
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Embarcar a:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        labelDomicilio.setBackground(new java.awt.Color(102, 102, 102));
+        labelDomicilio.setColumns(20);
+        labelDomicilio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelDomicilio.setForeground(new java.awt.Color(204, 204, 204));
+        labelDomicilio.setRows(5);
+        jScrollPane1.setViewportView(labelDomicilio);
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("RFC:");
 
+        labelRFC.setBackground(new java.awt.Color(102, 102, 102));
+        labelRFC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelRFC.setForeground(new java.awt.Color(204, 204, 204));
         labelRFC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 labelRFCKeyTyped(evt);
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Tel:");
 
-        labelTel.addKeyListener(new java.awt.event.KeyAdapter() {
+        labelTelefono.setBackground(new java.awt.Color(102, 102, 102));
+        labelTelefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        labelTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                labelTelKeyTyped(evt);
+                labelTelefonoKeyTyped(evt);
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        labelEmbarcar.setBackground(new java.awt.Color(102, 102, 102));
+        labelEmbarcar.setColumns(20);
+        labelEmbarcar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelEmbarcar.setForeground(new java.awt.Color(204, 204, 204));
+        labelEmbarcar.setRows(5);
+        jScrollPane2.setViewportView(labelEmbarcar);
 
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("EMAIL*:");
 
+        labelEmail.setBackground(new java.awt.Color(102, 102, 102));
+        labelEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelEmail.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setText("Contacto");
+
+        labelContacto.setBackground(new java.awt.Color(102, 102, 102));
+        labelContacto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelContacto.setForeground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(122, 122, 122)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNombre)
-                                    .addComponent(labelEmail)
-                                    .addComponent(jTextField4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel7))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelEmpresa)
-                                    .addComponent(labelPuesto)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                                        .addComponent(jLabel8)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(labelTel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(38, 38, 38)
-                                .addComponent(jScrollPane1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(26, 26, 26)
-                                .addComponent(jScrollPane2))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombre)
+                            .addComponent(labelEmail)
+                            .addComponent(labelContacto)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(jButton2)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnRegresar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(116, 116, 116))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(391, 391, 391)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEmpresa)
+                            .addComponent(labelPuesto)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addGap(27, 27, 27)
+                                .addComponent(labelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane2)))
+                .addGap(134, 134, 134))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(362, 362, 362))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(252, 252, 252))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -185,7 +243,7 @@ public class AltaCliente extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -199,7 +257,7 @@ public class AltaCliente extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(labelRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(labelTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,11 +266,11 @@ public class AltaCliente extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegresar)
-                    .addComponent(jButton2))
-                .addGap(26, 26, 26))
+                    .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,21 +302,48 @@ public class AltaCliente extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         // TODO add your handling code here:
         
         String nombre = labelNombre.getText();
         String puesto = labelPuesto.getText();
-        String Empresa = labelEmpresa.getText();
+        String empresa = labelEmpresa.getText();
         
+        String rfc = labelRFC.getText(),domicilio=labelDomicilio.getText(),
+            embarcar =labelEmbarcar.getText(),contacto=labelContacto.getText(),
+            telefono=labelTelefono.getText(), correo = labelEmail.getText() ;
+        
+        Validaciones validar =  new Validaciones();
+        
+       if(!validar.isValidEmailAddress(correo)){
+           JOptionPane.showMessageDialog(null, "El correo no tiene el formato adecuado, o no es valido");
+           return;
+       }
+       
+       if(!validar.validarRfc(rfc)){
+           JOptionPane.showMessageDialog(null, "El RFC no tiene el formato adecuado, o no es valido");
+           return;
+       }
+       
+       
         try {
-            boolean var = MenuPrincipal.consultas.cambiosProducto("insert into clientes(nombre,apellido,empresa) values ('"+nombre +"', '"+puesto +"', '"+ Empresa+"');");
+            boolean var = MenuPrincipal.consultas.cambiosProducto("INSERT INTO clientes" +
+                    "(nombre, apellido, empresa , email, contacto, telefono, rfc, domicilio, embarcar) " +
+                    "VALUES ( '"+nombre+ "', '"+puesto+"', '"+empresa+"', '"+correo+"','"+contacto+"', "
+                            + "'"+telefono+"', '"+rfc+"', '"+domicilio+"', '"+embarcar+"');");
             if(var){
                 JOptionPane.showMessageDialog(null, "Se agrego correctamente"); 
                 MenuPrincipal.consultas.CargaClientes();//cargaClientes
+                
                 labelNombre.setText("");
                 labelPuesto.setText("");
                 labelEmpresa.setText("");
+                labelRFC.setText("");
+                labelDomicilio.setText("");
+                labelEmbarcar.setText("");
+                labelContacto.setText("");
+                labelTelefono.setText("");
+                labelEmail.setText("");
                 
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -266,23 +351,23 @@ public class AltaCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Fallo al agregar");
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAltaActionPerformed
 
     
-    private void labelTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelTelKeyTyped
+    private void labelTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelTelefonoKeyTyped
         // TODO add your handling code here:
         Validaciones validaciones = new Validaciones();
         char ch = evt.getKeyChar();
 
-        if ( !validaciones.isNumber(ch) && !validaciones.isValidSignal(ch,labelTel) && !validaciones.validatePoint(ch,labelTel)  && ch != '\b') {
+        if ( !validaciones.isNumber(ch) && !validaciones.isValidSignal(ch,labelTelefono) && !validaciones.validatePoint(ch,labelTelefono)  && ch != '\b') {
                  evt.consume();
          }
         
-        if(labelTel.getText().length() > 9){
+        if(labelTelefono.getText().length() > 9){
                 evt.consume();
         }
         
-    }//GEN-LAST:event_labelTelKeyTyped
+    }//GEN-LAST:event_labelTelefonoKeyTyped
 
     private void labelRFCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelRFCKeyTyped
         // TODO add your handling code here:
@@ -294,8 +379,8 @@ public class AltaCliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlta;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -308,14 +393,14 @@ public class AltaCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField labelContacto;
+    private javax.swing.JTextArea labelDomicilio;
     private javax.swing.JTextField labelEmail;
+    private javax.swing.JTextArea labelEmbarcar;
     private javax.swing.JTextField labelEmpresa;
     private javax.swing.JTextField labelNombre;
     private javax.swing.JTextField labelPuesto;
     private javax.swing.JTextField labelRFC;
-    private javax.swing.JTextField labelTel;
+    private javax.swing.JTextField labelTelefono;
     // End of variables declaration//GEN-END:variables
 }

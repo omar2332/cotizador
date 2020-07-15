@@ -51,97 +51,112 @@ public class MenuInicial extends javax.swing.JPanel {
         btnSalirSistema = new javax.swing.JButton();
         btnOpciones = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(65, 65, 65));
         setMaximumSize(new java.awt.Dimension(426, 720));
         setMinimumSize(new java.awt.Dimension(426, 720));
         setPreferredSize(new java.awt.Dimension(426, 720));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("COTIZADOR");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/logo (6).png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Menu Principal");
 
-        btnProductos.setBackground(new java.awt.Color(204, 204, 204));
-        btnProductos.setForeground(new java.awt.Color(0, 0, 0));
+        btnProductos.setBackground(new java.awt.Color(51, 51, 51));
+        btnProductos.setForeground(new java.awt.Color(204, 204, 204));
         btnProductos.setText("Productos");
+        btnProductos.setBorder(null);
+        btnProductos.setBorderPainted(false);
+        btnProductos.setPreferredSize(null);
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductosActionPerformed(evt);
             }
         });
 
-        btnCotizaciones.setBackground(new java.awt.Color(204, 204, 204));
-        btnCotizaciones.setForeground(new java.awt.Color(0, 0, 0));
+        btnCotizaciones.setBackground(new java.awt.Color(51, 51, 51));
+        btnCotizaciones.setForeground(new java.awt.Color(204, 204, 204));
         btnCotizaciones.setText("Cotizaciones");
+        btnCotizaciones.setBorder(null);
+        btnCotizaciones.setBorderPainted(false);
+        btnCotizaciones.setPreferredSize(null);
         btnCotizaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCotizacionesActionPerformed(evt);
             }
         });
 
-        btnClientes.setBackground(new java.awt.Color(204, 204, 204));
-        btnClientes.setForeground(new java.awt.Color(0, 0, 0));
+        btnClientes.setBackground(new java.awt.Color(51, 51, 51));
+        btnClientes.setForeground(new java.awt.Color(204, 204, 204));
         btnClientes.setText("Clientes");
+        btnClientes.setBorder(null);
+        btnClientes.setBorderPainted(false);
+        btnClientes.setPreferredSize(null);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClientesActionPerformed(evt);
             }
         });
 
-        btnSalirSistema.setBackground(new java.awt.Color(204, 204, 204));
-        btnSalirSistema.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalirSistema.setBackground(new java.awt.Color(51, 51, 51));
+        btnSalirSistema.setForeground(new java.awt.Color(204, 204, 204));
         btnSalirSistema.setText("Salir");
         btnSalirSistema.setToolTipText("");
+        btnSalirSistema.setBorder(null);
+        btnSalirSistema.setBorderPainted(false);
+        btnSalirSistema.setPreferredSize(null);
         btnSalirSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirSistemaActionPerformed(evt);
             }
         });
 
-        btnOpciones.setBackground(new java.awt.Color(204, 204, 204));
-        btnOpciones.setForeground(new java.awt.Color(0, 0, 0));
+        btnOpciones.setBackground(new java.awt.Color(51, 51, 51));
+        btnOpciones.setForeground(new java.awt.Color(204, 204, 204));
         btnOpciones.setText("Opciones");
+        btnOpciones.setBorder(null);
+        btnOpciones.setBorderPainted(false);
+        btnOpciones.setPreferredSize(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel3)))
-                .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(153, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSalirSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                    .addComponent(btnSalirSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCotizaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)))
+                .addGap(139, 139, 139))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(10, 10, 10))
-                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(btnCotizaciones, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(btnOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(144, 144, 144))
+                        .addComponent(jLabel3)
+                        .addGap(14, 14, 14)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1)
-                .addGap(13, 13, 13)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(56, 56, 56)
+                .addGap(24, 24, 24)
                 .addComponent(btnCotizaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,7 +166,7 @@ public class MenuInicial extends javax.swing.JPanel {
                 .addComponent(btnOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalirSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(178, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

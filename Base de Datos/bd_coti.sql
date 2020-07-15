@@ -11,7 +11,6 @@ create table clientes(
 	nombre text not null,
 	apellido text not null,
 	empresa text not null,
-	direccion text,
 	email text,
 	contacto text,
 	telefono varchar(20),
@@ -59,7 +58,9 @@ insert into productos(descripcion,precio) values ('Libro de Probabilidad Y Estad
 insert into productos(descripcion,precio) values ('Libro Analisis Matematico', 400);
 insert into productos(descripcion,precio) values ('Libro de Matematicas Discretas', 500);
 
-insert into clientes(nombre,apellido,empresa) values ('Jorge Luis', 'Programador', 'RBA');
+INSERT INTO clientes(
+	 nombre, apellido, empresa, email, contacto, telefono, rfc, domicilio, embarcar)
+	VALUES ('Omar Sebastian', 'Programador', 'SISA', 'omar_23_99@hotmail.com', 'Sebastian', '5551843061', '123456789', 'Direccion NA', 'Direccion NA');
 insert into cotizacion(id_cliente,fecha_creacion,subtotal,iva,descuento,total,vigencia) values (1,'10/05/2020',1400,0,0,1400,8);
 
 insert into cot_productos(id_cotizacion,id_producto,cantidad,cantidadXProducto,comentario) values (1,1,2,600,'Sin comentarios');
