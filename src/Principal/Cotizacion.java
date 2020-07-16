@@ -21,6 +21,55 @@ public class Cotizacion {
         this.iva = iva;
         this.descuento = descuento;
     }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setPosc(int posc) {
+        this.posc = posc;
+    }
+
+    public void setId_coti(int id_coti) {
+        this.id_coti = id_coti;
+    }
+
+    public void setVigencia(int vigencia) {
+        this.vigencia = vigencia;
+    }
+
+    public void setIva(double iva) {
+        this.iva = iva;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setListaProducto(List<Productos> listaProducto) {
+        this.listaProducto = listaProducto;
+    }
+
+    public void setTotalConLetras(String totalConLetras) {
+        this.totalConLetras = totalConLetras;
+    }
+    
+    
+    
+    
+    
     
     
     public void setFechaActual(){

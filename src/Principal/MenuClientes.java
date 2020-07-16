@@ -208,6 +208,8 @@ public class MenuClientes extends javax.swing.JPanel {
         // TODO add your handling code here:
         MenuPrincipal.decisionAltaCliente = false;
         EditarCliente mi = new EditarCliente();
+        //185,25
+        //879, 670
         mi.setLocation(185,25);//posicion del panel ajustado al frame
         mi.setSize(879, 670);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/

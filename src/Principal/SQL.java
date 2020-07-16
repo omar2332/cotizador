@@ -61,16 +61,58 @@ public class SQL {
        sentencia = conexion.createStatement();
        String consultaSQL = "SELECT* FROM cotizacion WHERE id_cotizacion = "+String.valueOf(idCotizacion);
        resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
+       Cotizacion cotizacion = null;
+       
        
        while(resultado.next()){
-           int id_cliente = Integer.parseInt(resultado.getString("id_cliente"));   
-           String fecha = resultado.getString("fecha_creacion");
-           Double iva = Double.parseDouble(resultado.getString("iva")) , descuento = Double.parseDouble(resultado.getString("descuento"));
+           
+            int id_cliente = Integer.parseInt(resultado.getString("id_cliente"));   
+            String fecha = resultado.getString("fecha_creacion"), num_letras = "";
+            Double iva = Double.parseDouble(resultado.getString("iva")) , descuento = Double.parseDouble(resultado.getString("descuento"));
+            Double total= 0.0, subtotal=0.0;
+           
+           
+            int vigencia = 0;
+            
+            
+            if(resultado.getString("num_letras").equals("")){
+                num_letras = "Null";
+            }else{
+                num_letras = resultado.getString("num_letras");
+            }
+           
+           
+            if(resultado.getString("total").equals("")){
+                total = 0.0;
+            }else{
+                total = Double.valueOf( resultado.getString("total"));
+            }
+           
+            if(resultado.getString("subtotal").equals("")){
+                subtotal = 0.0;
+            }else{
+                subtotal = Double.valueOf( resultado.getString("subtotal"));
+            }
+            
+            if(resultado.getString("vigencia").equals("")){
+                vigencia = 0;
+            }else{
+                vigencia = Integer.valueOf( resultado.getString("subtotal"));
+            }
+            
+           
+           
+           
+           
+           
+           
+           
+           
            
        }
        
        
-       Cotizacion cotizacion = null;
+      
                
        
        
