@@ -39,8 +39,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         //posicionamiento del primer panel
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
-        mi.setLocation(412,0);//posicion del panel ajustado al frame
-        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        mi.setLocation(142,0);//posicion del panel ajustado al frame
+        mi.setSize(965, 720);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         panelPrincipal.removeAll();
         panelPrincipal.add(mi);
