@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author HP
+ * @author HP y Polette
  */
 public class MenuInicial extends javax.swing.JPanel {
 
