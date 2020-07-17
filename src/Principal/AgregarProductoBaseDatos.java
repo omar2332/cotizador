@@ -83,6 +83,11 @@ public class AgregarProductoBaseDatos extends javax.swing.JPanel {
         });
 
         btnMenuPrincipal.setText("Menu Principal");
+        btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuPrincipalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -221,6 +226,10 @@ public class AgregarProductoBaseDatos extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(null, "Llene los campos por favor");
         }
     }//GEN-LAST:event_btnAgregarNuevoActionPerformed
+
+    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

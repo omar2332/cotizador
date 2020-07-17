@@ -205,8 +205,8 @@ public class PasoUno extends javax.swing.JPanel {
         
         
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
-        mi.setLocation(412,0);//posicion del panel ajustado al frame
-        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        mi.setLocation(145,0);//posicion del panel ajustado al frame
+        mi.setSize(960, 720);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
         MenuPrincipal.panelPrincipal.add(mi);
