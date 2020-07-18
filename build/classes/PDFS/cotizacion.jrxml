@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="573c724f-23ff-4a69-ba4b-79c32749218f">
-	<property name="ireport.zoom" value="2.3579476910000032"/>
-	<property name="ireport.x" value="150"/>
-	<property name="ireport.y" value="676"/>
+	<property name="ireport.zoom" value="1.2100000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="filtro" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -78,18 +78,18 @@ where cotizacion."id_cotizacion" = $P!{filtro}]]>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="555" height="79" uuid="5100f475-15f9-41cf-8fde-71ba4a2619ee"/>
-				<imageExpression><![CDATA["prueba.PNG"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="355" y="59" width="100" height="20" uuid="9baf4a83-9efb-4439-873a-a99aa2db1233"/>
+				<reportElement x="373" y="59" width="100" height="20" uuid="9baf4a83-9efb-4439-873a-a99aa2db1233"/>
 				<text><![CDATA[Ciudad de México, a]]></text>
 			</staticText>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement x="449" y="59" width="100" height="20" uuid="2aa5709a-a062-45a7-9bec-7863b82254e2"/>
+				<reportElement x="467" y="59" width="100" height="20" uuid="2aa5709a-a062-45a7-9bec-7863b82254e2"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="17" y="0" width="538" height="79" uuid="db1a981f-5b54-441e-8f48-8daaac3b9d3f"/>
+				<imageExpression><![CDATA["C:\\Users\\HP\\Documents\\NetBeansProjects\\Cotizador2\\src\\PDFS\\prueba.PNG"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
