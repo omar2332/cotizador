@@ -48,7 +48,6 @@ public class MenuInicial extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         menuP = new javax.swing.JPanel();
         menuI = new javax.swing.JPanel();
-        linehideMenu = new javax.swing.JPanel();
         hideMenu = new javax.swing.JPanel();
         buttonhideMenu = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -111,10 +110,6 @@ public class MenuInicial extends javax.swing.JPanel {
 
         menuI.setBackground(new java.awt.Color(0, 0, 51));
         menuI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        linehideMenu.setBackground(new java.awt.Color(0, 0, 51));
-        linehideMenu.setLayout(new java.awt.BorderLayout());
-        menuI.add(linehideMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
         hideMenu.setBackground(new java.awt.Color(0, 0, 51));
         hideMenu.setLayout(new java.awt.BorderLayout());
@@ -368,7 +363,6 @@ public class MenuInicial extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel linehideMenu;
     private javax.swing.JPanel menuB;
     private javax.swing.JPanel menuI;
     private javax.swing.JPanel menuP;
