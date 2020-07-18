@@ -494,7 +494,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
             
             
             JasperReport reporte = null;
-            String path = "src\\PDFS\\Cotizacio.jasper";
+            String path = "src\\PDFS\\cotizacion.jasper";
             
             reporte =  (JasperReport) JRLoader.loadObjectFromFile(path);
             
