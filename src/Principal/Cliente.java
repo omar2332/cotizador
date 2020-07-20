@@ -2,6 +2,7 @@ package Principal;
 // Julio Sorprendeme
 //Que pez.
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 //khjjkhkhkj
@@ -166,6 +167,20 @@ public class Cliente {
         this.correo = correo;
     }
     
+    
+    
+    public void eliminarCliente() throws ClassNotFoundException, SQLException{
+        
+        
+        
+        String sql_consulta = "DELETE FROM cotizacion WHERE id_cliente= "+String.valueOf(id_cliente)+";";
+        MenuPrincipal.consultas.cambiosProducto(sql_consulta);
+        
+        sql_consulta = "DELETE FROM clientes WHERE id_cliente= "+String.valueOf(id_cliente)+";";
+        MenuPrincipal.consultas.cambiosProducto(sql_consulta);
+        
+        
+    }
     
     
     

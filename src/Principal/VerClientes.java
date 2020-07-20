@@ -22,11 +22,66 @@ public class VerClientes extends javax.swing.JPanel {
     /**
      * Creates new form VerClientes
      */
+    
+    
+    
+    
+    
     public String a[][] = null;
+    public boolean eliminar = false;
+    
+    
+    public VerClientes(boolean el){
+        this.eliminar = true;
+        initComponents();
+        btnEditarCliente.setVisible(false);
+        btnEliminar.setEnabled(false);
+        a = new String[MenuPrincipal.ClientesMuestra.size()][6];
+         
+        //llenado de la tabla
+        for(int i = 0;i<MenuPrincipal.ClientesMuestra.size();i++){
+            
+            a[i][0] = "Cliente-" + MenuPrincipal.ClientesMuestra.get(i).id_cliente;
+            a[i][1] = MenuPrincipal.ClientesMuestra.get(i).nombre;
+            a[i][2] = MenuPrincipal.ClientesMuestra.get(i).correo;
+            a[i][3] = MenuPrincipal.ClientesMuestra.get(i).empresa;
+            a[i][4] = MenuPrincipal.ClientesMuestra.get(i).telefono;
+            a[i][5] = MenuPrincipal.ClientesMuestra.get(i).rfc;
+ 
+        }
+        
+        
+           TablaInventario.setModel(new javax.swing.table.DefaultTableModel(
+            a,
+            new String [] {
+                "ID", "Nombre","Email", "Empresa","telefono","RFC"
+            }
+            ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+         });
+       
+       TablaInventario.getColumnModel().getColumn(0).setPreferredWidth(80);
+       TablaInventario.getColumnModel().getColumn(1).setPreferredWidth(250);
+       TablaInventario.getColumnModel().getColumn(2).setPreferredWidth(250);
+       TablaInventario.getColumnModel().getColumn(3).setPreferredWidth(100);
+       TablaInventario.getColumnModel().getColumn(4).setPreferredWidth(100);
+       TablaInventario.getColumnModel().getColumn(5).setPreferredWidth(100);
+    }
+    
+    
     public VerClientes() {
         initComponents();
+        textoEliminar.setVisible(false);
         btnEditarCliente.setEnabled(false);
-         a = new String[MenuPrincipal.ClientesMuestra.size()][6];
+        btnEliminar.setEnabled(false);
+        
+        a = new String[MenuPrincipal.ClientesMuestra.size()][6];
          
         //llenado de la tabla
         for(int i = 0;i<MenuPrincipal.ClientesMuestra.size();i++){
@@ -87,6 +142,8 @@ public class VerClientes extends javax.swing.JPanel {
         btnMenuPrincipal = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        textoEliminar = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1250, 720));
         setMinimumSize(new java.awt.Dimension(1250, 720));
@@ -158,13 +215,42 @@ public class VerClientes extends javax.swing.JPanel {
             }
         });
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        textoEliminar.setText("Seleccione un cliente a eliminar:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(620, 620, 620)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(btnRegresar)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnMenuPrincipal)
+                        .addGap(232, 232, 232)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
+                        .addComponent(btnEditarCliente)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnLimpiar)))
+                .addContainerGap(219, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(textoEliminar)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(41, Short.MAX_VALUE))
@@ -183,21 +269,6 @@ public class VerClientes extends javax.swing.JPanel {
                                 .addComponent(btnBuscarNombre))
                             .addComponent(jLabel3))
                         .addGap(74, 74, 74))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(620, 620, 620)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(btnEditarCliente)
-                        .addGap(119, 119, 119)
-                        .addComponent(btnMenuPrincipal)
-                        .addGap(139, 139, 139)
-                        .addComponent(btnRegresar)
-                        .addGap(97, 97, 97)
-                        .addComponent(btnLimpiar)))
-                .addContainerGap(253, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,14 +285,17 @@ public class VerClientes extends javax.swing.JPanel {
                     .addComponent(btnBuscarEmpresa)
                     .addComponent(nombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarNombre))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoEliminar)
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarCliente)
                     .addComponent(btnMenuPrincipal)
                     .addComponent(btnRegresar)
-                    .addComponent(btnLimpiar))
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnEliminar))
                 .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -338,7 +412,7 @@ public class VerClientes extends javax.swing.JPanel {
         if(TablaInventario.getSelectedRow() >= 0){
             if(TablaInventario.getSelectedRows().length == 1){
                 String b = a[TablaInventario.getSelectedRow()][0].replaceAll("[a-zA-Z]", "");
-                EditarCliente mp = null;
+                EditarCliente mp = null; 
                 try {
                     
                     mp = new EditarCliente(-Integer.parseInt(b));
@@ -368,7 +442,14 @@ public class VerClientes extends javax.swing.JPanel {
     private void TablaInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaInventarioMouseClicked
         // TODO add your handling code here:
         if(TablaInventario.getSelectedRow() >= 0){
-            btnEditarCliente.setEnabled(true);
+            
+            if(!this.eliminar){
+                 btnEditarCliente.setEnabled(true);
+            }
+           
+            
+            
+            btnEliminar.setEnabled(true);
         }
     }//GEN-LAST:event_TablaInventarioMouseClicked
 
@@ -491,6 +572,67 @@ public class VerClientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        
+        int result = JOptionPane.showConfirmDialog(null, "Si elimina al cliente, se eliminaran todas las cotizaciones relacionadas con el","alert", JOptionPane.OK_CANCEL_OPTION);
+        
+        if(result == JOptionPane.YES_OPTION){
+            if(TablaInventario.getSelectedRow() >= 0){
+               if(TablaInventario.getSelectedRows().length == 1){
+                   String b = a[TablaInventario.getSelectedRow()][0].replaceAll("[a-zA-Z]", "");
+
+
+                   int id_cliente_eliminar = -Integer.parseInt(b);
+                   Cliente cliente_eliminar = null;
+                   for(int i=0; i<MenuPrincipal.ClientesMuestra.size();i++){
+
+                       if(MenuPrincipal.ClientesMuestra.get(i).id_cliente==id_cliente_eliminar){
+                           cliente_eliminar=MenuPrincipal.ClientesMuestra.get(i);
+                           break;
+                       }
+                   }
+
+
+
+                   try {
+                       cliente_eliminar.eliminarCliente();
+                       MenuPrincipal.consultas.CargaClientes();
+                   } catch (ClassNotFoundException ex) {
+                       Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
+                   } catch (SQLException ex) {
+                       Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+
+
+
+                   VerClientes mi = null;
+                   if(!this.eliminar){
+                       mi = new VerClientes();
+                   }else{
+                       mi = new VerClientes(true);
+                   }
+
+                   mi.setLocation(0,0);//posicion del panel ajustado al frame
+                   mi.setSize(1250, 720);//tamaño del panel ajustado al frame
+                   /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+                   panelPrincipal.removeAll();
+                   panelPrincipal.add(mi);
+                   panelPrincipal.setLocation(0,0);
+                   panelPrincipal.setSize(1250, 720);
+                   panelPrincipal.revalidate();
+                   panelPrincipal.repaint(); 
+               }else{
+                   JOptionPane.showMessageDialog(this,
+                   "Seleccione solo un cliente.",
+                   "Error",
+                   JOptionPane.ERROR_MESSAGE);
+               }
+           }
+        }
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EmpresaLabel;
@@ -498,6 +640,7 @@ public class VerClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnBuscarEmpresa;
     private javax.swing.JButton btnBuscarNombre;
     private javax.swing.JButton btnEditarCliente;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnMenuPrincipal;
     private javax.swing.JButton btnRegresar;
@@ -506,5 +649,6 @@ public class VerClientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombreLabel;
+    private javax.swing.JLabel textoEliminar;
     // End of variables declaration//GEN-END:variables
 }

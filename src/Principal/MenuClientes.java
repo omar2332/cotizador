@@ -248,7 +248,16 @@ public class MenuClientes extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         
-        
+        VerClientes mi = new VerClientes(true);
+        mi.setLocation(0,0);//posicion del panel ajustado al frame
+        mi.setSize(1250, 720);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        panelPrincipal.removeAll();
+        panelPrincipal.add(mi);
+        panelPrincipal.setLocation(0,0);
+        panelPrincipal.setSize(1250, 720);
+        panelPrincipal.revalidate();
+        panelPrincipal.repaint();
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
