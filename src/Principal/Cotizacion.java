@@ -15,11 +15,17 @@ public class Cotizacion {
     public Cliente cliente;
     public List<Productos> listaProducto;
     public String totalConLetras ;
+    public boolean guardado;
     
     public Cotizacion(int id_coti, double iva, double descuento) {
         this.id_coti = id_coti;
         this.iva = iva;
         this.descuento = descuento;
+        this.guardado = false;
+    }
+    
+    public void guardado(){
+         this.guardado = true;
     }
 
     public void setFecha(String fecha) {
@@ -74,7 +80,7 @@ public class Cotizacion {
     
     public void setFechaActual(){
         Date date = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //tomamos la fecha actual 
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); //tomamos la fecha actual 
         this.fecha= dateFormat.format(date);
     }
     

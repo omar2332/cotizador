@@ -8,6 +8,8 @@ import java.util.Objects;
 //khjjkhkhkj
 
 public class Cliente {
+    
+    
     public int id_cliente;
     public String nombre,puesto,empresa,rfc,domicilio,embarcar,contacto,telefono,correo;
 

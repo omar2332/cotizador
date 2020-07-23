@@ -26,12 +26,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     
     public MenuPrincipal() throws ClassNotFoundException, SQLException {
+        
         ProdutosMuestra = new ArrayList<Productos>();//lista de productos
         ClientesMuestra = new ArrayList<Cliente>();
+        
         consultas = new SQL(); // Objeto para hacer consultas SQL
+        
         consultas.CargaDeProducto();//cargar base de datos con productos
         consultas.CargaClientes();//cargaClientes
-        CotizacionActual = new Cotizacion(consultas.UnID("Select count(*) From cotizacion") + 1,0.16,0.00); //inicializamos cotizacion con datos actuales
+        
+        CotizacionActual = new Cotizacion(consultas.UnID("Select max(id_cotizacion) From cotizacion") + 1,0.16,0.00); //inicializamos cotizacion con datos actuales
         
         initComponents();
         this.setResizable(false);//no reescalable

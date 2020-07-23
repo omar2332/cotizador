@@ -5,6 +5,10 @@
  */
 package Principal;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author HP
@@ -31,7 +35,7 @@ public class MenuCotizaciones extends javax.swing.JPanel {
         btnRegresar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAbrir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,7 +64,12 @@ public class MenuCotizaciones extends javax.swing.JPanel {
 
         jButton2.setText("Ver");
 
-        jButton3.setText("Abrir");
+        btnAbrir.setText("Abrir");
+        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,7 +131,7 @@ public class MenuCotizaciones extends javax.swing.JPanel {
                         .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(532, Short.MAX_VALUE))
@@ -143,7 +152,7 @@ public class MenuCotizaciones extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
@@ -187,12 +196,37 @@ public class MenuCotizaciones extends javax.swing.JPanel {
         MenuPrincipal.panelPrincipal.repaint();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+        // TODO add your handling code here:
+        
+        AbrirCotizacionesSeleccion mp = null;
+        try {
+            mp = new AbrirCotizacionesSeleccion();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        mp.setLocation(231,63);//posicion del panel ajustado al frame
+        mp.setSize(788, 593);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
+        
+        
+    }//GEN-LAST:event_btnAbrirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

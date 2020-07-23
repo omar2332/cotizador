@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 
 public class SQL {
+    
    private final String contraseña = "123";
    private final String cadenaConexion = "jdbc:postgresql://localhost:5432/cotizador?";
    private Connection conexion;
@@ -34,7 +35,7 @@ public class SQL {
    
    public int UnID(String consultaSQL) throws ClassNotFoundException, SQLException{
                //Para la conexion de la base de datos en postgresql
-       Class.forName("org.postgresql.Driver");
+        Class.forName("org.postgresql.Driver");
 
         conexion = DriverManager.getConnection(cadenaConexion, "postgres", contraseña);
         sentencia = conexion.createStatement();
@@ -42,7 +43,7 @@ public class SQL {
         
         int IdEntero = 0;
         while (resultado.next()) {
-            
+             
             IdEntero= resultado.getInt(1); 
         }
         
@@ -54,25 +55,121 @@ public class SQL {
        return IdEntero;
    }
    
-   public Cotizacion CargaCotizacionByID(int idCotizacion) throws ClassNotFoundException, SQLException{
+   
+   public  ArrayList<Cotizacion> cotizacionesByIDCliente(int id_cliente){
+       
+       ArrayList<Cotizacion> lista_cotizaciones =  new ArrayList<Cotizacion>();//lista de cotizaciones 
+       
+       String consulta_SQL = "SELECT * "
+                    + "FROM cotizacion "
+                    + "WHERE id_cliente = " + String.valueOf(id_cliente);
+       return lista_cotizaciones;
+   }
+   
+   
+   public String[] TodasCotizacionesID() throws ClassNotFoundException, SQLException{
+       
+       String consultaSQL = "SELECT count(*) FROM cotizacion";
+       
+       int totalCotizaciones = 0;
+       Class.forName("org.postgresql.Driver");
+
+       conexion = DriverManager.getConnection(cadenaConexion, "postgres", contraseña);
+       sentencia = conexion.createStatement();
+       resultado = sentencia.executeQuery(consultaSQL); 
+       
+       while (resultado.next()) {
+             
+            totalCotizaciones= resultado.getInt(1); 
+        }
+       
+       
+       String [] IDS = new String[totalCotizaciones];
+       int i = 0;
+       
+       consultaSQL = "SELECT id_cotizacion FROM cotizacion";
+       resultado = sentencia.executeQuery(consultaSQL); 
+       
+       
+       while (resultado.next()) {
+             
+            IDS[i] = "SISA-"+resultado.getString("id_cotizacion");
+            i++;
+        }
+               
+       return IDS;
+       
+   }
+   
+   public Productos GetProductoByID(int idProducto, int cantidad) throws ClassNotFoundException, SQLException{
+       
        Class.forName("org.postgresql.Driver");
         
        conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
        sentencia = conexion.createStatement();
-       String consultaSQL = "SELECT* FROM cotizacion WHERE id_cotizacion = "+String.valueOf(idCotizacion);
+       String consultaSQL = "SELECT * FROM productos WHERE id_producto = "+String.valueOf(idProducto);
        resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
-       Cotizacion cotizacion = null;
+       
+       String precio_temp = "",descripcion="";
+       
+       while (resultado.next()) {
+             
+            precio_temp  = resultado.getString("precio");
+            descripcion  = resultado.getString("descripcion");
+            
+        }
+       
+       
+       Productos temp = new Productos(idProducto,cantidad,descripcion,Double.parseDouble(precio_temp));
+       return temp;
+   }
+   
+   
+   public ArrayList<Integer> IDCotizacionesByIDCliente(int idCliente) throws SQLException, ClassNotFoundException{
+       List<Integer> idsCotizaciones = new ArrayList<Integer>();
+       Class.forName("org.postgresql.Driver");
+        
+       conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
+       sentencia = conexion.createStatement();
+       String consultaSQL = "SELECT * FROM cotizacion,clientes WHERE clientes.id_cliente = "+ String.valueOf(idCliente)+" and cotizacion.id_cliente=clientes.id_cliente";
+       resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
        
        
        while(resultado.next()){
+           idsCotizaciones.add(resultado.getInt("id_cotizacion")  );
+       }
+       
+       return (ArrayList<Integer>) idsCotizaciones;
+   }
+   
+   public Cotizacion CargaCotizacionByID(int idCotizacion) throws ClassNotFoundException, SQLException{
+       
+       Class.forName("org.postgresql.Driver");
+        
+       conexion = DriverManager.getConnection(cadenaConexion,"postgres", contraseña);
+       sentencia = conexion.createStatement();
+       String consultaSQL = "SELECT * FROM cotizacion WHERE id_cotizacion = "+String.valueOf(idCotizacion);
+       resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
+       
+        int id_cliente=0;
+        
+        String fecha = "", num_letras = "";
+        Double iva = 0.0, descuento = 0.0;
+        Double total= 0.0, subtotal=0.0;
+        int vigencia = 0;
+       // consulta con los datos de la cotizacion
+       while(resultado.next()){
+          
+            id_cliente = Integer.parseInt(resultado.getString("id_cliente"));   
+            fecha = resultado.getString("fecha_creacion");
+            num_letras = "";
+            iva = Double.parseDouble(resultado.getString("iva")) ;
+            descuento = Double.parseDouble(resultado.getString("descuento"));
+            total= 0.0;
+            subtotal=0.0;
            
-            int id_cliente = Integer.parseInt(resultado.getString("id_cliente"));   
-            String fecha = resultado.getString("fecha_creacion"), num_letras = "";
-            Double iva = Double.parseDouble(resultado.getString("iva")) , descuento = Double.parseDouble(resultado.getString("descuento"));
-            Double total= 0.0, subtotal=0.0;
            
-           
-            int vigencia = 0;
+            
             
             
             if(resultado.getString("num_letras").equals("")){
@@ -97,29 +194,65 @@ public class SQL {
             if(resultado.getString("vigencia").equals("")){
                 vigencia = 0;
             }else{
-                vigencia = Integer.valueOf( resultado.getString("subtotal"));
+                vigencia = Integer.valueOf( resultado.getString("vigencia"));
+            }
+            
+            if(resultado.getString("iva").equals("")){
+                iva = 0.0;
+            }else{
+                iva = Double.valueOf( resultado.getString("iva"))/subtotal;
+            }
+            
+            if(resultado.getString("descuento").equals("")){
+                descuento = 0.0;
+            }else{
+                descuento = Double.valueOf( resultado.getString("descuento"))/subtotal;
             }
             
            
            
-           
-           
-           
-           
-           
+       }
+       
+       consultaSQL = "select * from cot_productos, productos " +
+                    "where cot_productos.id_cotizacion= "+String.valueOf(idCotizacion) +" "+
+                    "and productos.id_producto = cot_productos.id_producto";
+       resultado = sentencia.executeQuery(consultaSQL); //hacer la consulta
+       List<Productos> ProdutosCotizacion = new ArrayList<Productos>();//lista de productos ;
+       
+       
+       while(resultado.next()){
+            int idProducto = 0,cantidad= 0;
+            String descripcion = "";
+            double precio = 0.0;
+            
+            
+            descripcion = resultado.getString("descripcion");
+            idProducto = resultado.getInt("id_producto");
+            cantidad = resultado.getInt("cantidad");
+            precio = Double.parseDouble(resultado.getString("precio"));
+            
+            ProdutosCotizacion.add(new Productos(idProducto,cantidad,descripcion,precio));
+            
            
            
        }
-       
-       
-      
-               
-       
+
+       Cliente cliente_cot = this.DatosCliente(id_cliente);
+       Cotizacion cotizacion = new Cotizacion(idCotizacion,iva,descuento);
+       cotizacion.fecha=fecha;
+       cotizacion.cliente=cliente_cot;
+       cotizacion.subtotal = subtotal;
+       cotizacion.guardado = true;//importante
+       cotizacion.listaProducto = ProdutosCotizacion;
+       cotizacion.total = total;
+       cotizacion.totalConLetras = num_letras;
+       cotizacion.vigencia = vigencia;
        
        
        conexion.close();
        resultado.close();
        sentencia.close();
+       
        return cotizacion;
        
        

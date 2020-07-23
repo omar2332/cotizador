@@ -32,7 +32,6 @@ public class ResumenCotizacion extends javax.swing.JPanel {
      * Creates new form ResumenCotizacion
      */
     public int n = MenuPrincipal.CotizacionActual.listaProducto.size();
-    public boolean guardado = true;
     
     public n2t numeroletras = new n2t();
     
@@ -42,7 +41,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         
         
         DecimalFormat df = new DecimalFormat("###,###.00");
-        DecimalFormat df2 = new DecimalFormat("###.00");
+        
         MenuPrincipal.CotizacionActual.setFechaActual();
         labelFecha.setText("Fecha: " + MenuPrincipal.CotizacionActual.fecha);
         labelCotizacion.setText("Cotizacion: SISA -" +String.valueOf(MenuPrincipal.CotizacionActual.id_coti));
@@ -106,20 +105,17 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         
         
         
-        String total_string = String.valueOf(df2.format(total));
-        String[] total_temp = total_string.split("\\.");
-       
         
-       String totalletras = numeroletras.convertirLetras( Integer.parseInt(total_temp[0]), 
-                Integer.parseInt(total_temp[1]));
-        System.out.println("prueba");
-        
-        System.out.println(totalletras.toUpperCase());
+
         
         labelSubtotal.setText("Subtotal: " + df.format(subtotal));
         labelTotal.setText("Total: "+ df.format(total));
         labelIVA.setText("IVA: " + df.format(MenuPrincipal.CotizacionActual.iva));
         labelDescuento.setText("Descuento: " + df.format(MenuPrincipal.CotizacionActual.descuento));
+        
+        
+        
+        
         
         
     }
@@ -165,6 +161,8 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     
     
     public void guardar(){
+        
+        DecimalFormat df2 = new DecimalFormat("###.00");
         String id_cotizacion = String.valueOf(MenuPrincipal.CotizacionActual.id_coti);
         String id_cliente= String.valueOf(MenuPrincipal.CotizacionActual.cliente.id_cliente);
         String fecha = MenuPrincipal.CotizacionActual.fecha;
@@ -173,9 +171,15 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         String subtotal = String.valueOf(MenuPrincipal.CotizacionActual.subtotal);
         String iva = String.valueOf(MenuPrincipal.CotizacionActual.iva);
         String vigencia = String.valueOf(MenuPrincipal.CotizacionActual.vigencia);
+        String total_string = String.valueOf(df2.format(MenuPrincipal.CotizacionActual.total));
+        String[] total_temp = total_string.split("\\.");
+       
         
-        String sql_insertar = "INSERT INTO cotizacion( id_cliente, fecha_creacion, descuento, total, subtotal, iva,vigencia)"
-                + "VALUES ( " + id_cliente+ ", '"+ fecha+"', "+descuento+", "+total+", "+subtotal+", "+iva +","+vigencia+" );";
+        String totalletras = numeroletras.convertirLetras( Integer.parseInt(total_temp[0]), 
+                Integer.parseInt(total_temp[1]));
+        
+        String sql_insertar = "INSERT INTO cotizacion( id_cliente, fecha_creacion,fecha_modificacion ,descuento, total, subtotal, iva,vigencia,num_letras)"
+                + "VALUES ( " + id_cliente+ ", '"+ fecha+"','"+ fecha+"' ,"+descuento+", "+total+", "+subtotal+", "+iva +","+vigencia+", '"+totalletras +"');";
         
         boolean var = true;
         try {
@@ -204,7 +208,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
             
             }
             
-            
+            MenuPrincipal.CotizacionActual.guardado();
             
         }
         
@@ -425,7 +429,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
                         .addComponent(labelSubtotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelIVA)
-                        .addGap(8, 8, 8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelDescuento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelTotal)))
@@ -474,10 +478,13 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         guardar();
-        guardado = false;
+        
         btnPDF.setText("PDF");
+        btnRegresar.setVisible(false);
+        btnCancelar.setText("Menu Principal");
         JOptionPane.showMessageDialog(this,
         "Se ha guardado correctamente");
+        btnGuardar.setEnabled(false);
         
         
         
@@ -485,8 +492,15 @@ public class ResumenCotizacion extends javax.swing.JPanel {
 
     private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
         
-        if(guardado){
+        if(!MenuPrincipal.CotizacionActual.guardado){
             guardar();
+            btnGuardar.setEnabled(false);
+             btnPDF.setText("PDF");
+            btnRegresar.setVisible(false);
+            btnCancelar.setText("Menu Principal");
+            JOptionPane.showMessageDialog(this,
+            "Se ha guardado correctamente");
+            btnGuardar.setEnabled(false);
         }
         
         try {
@@ -507,23 +521,10 @@ public class ResumenCotizacion extends javax.swing.JPanel {
             view.setDefaultCloseOperation(MenuPrincipal.DISPOSE_ON_CLOSE);
             view.setVisible(true);
             
+ 
             
-            /*
-            MenuPrincipal.CotizacionActual = null;
-            MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
-            mi.setLocation(412,0);//posicion del panel ajustado al frame
-            mi.setSize(426, 720);//tamaño del panel ajustado al frame
-             /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
-            /*MenuPrincipal.panelPrincipal.removeAll();
-            MenuPrincipal.panelPrincipal.add(mi);
-            MenuPrincipal.panelPrincipal.setLocation(0,0);
-            MenuPrincipal.panelPrincipal.setSize(1250, 720);
-            MenuPrincipal.panelPrincipal.revalidate();
-            MenuPrincipal.panelPrincipal.repaint();
-            */
+           
             
-            btnGuardar.setEnabled(false);
-            btnPDF.setEnabled(false);
             
         } catch (JRException ex) {
             Logger.getLogger(ResumenCotizacion.class.getName()).log(Level.SEVERE, null, ex);
