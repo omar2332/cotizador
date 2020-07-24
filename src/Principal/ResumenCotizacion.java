@@ -206,7 +206,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
                         + "	VALUES ("+id_cotizacion+", "+id_producto+", "+cantidad+", "+precio_cantidad+");";
                 
                 try {
-                        var = MenuPrincipal.consultas.cambiosProducto(sql_insertar);
+                       MenuPrincipal.consultas.cambiosProducto(sql_insertar);
                     } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(ResumenCotizacion.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -517,7 +517,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
             // TODO add your handling code here:
             
             
-            JasperReport reporte = null;
+            JasperReport reporte;
             String path = "src\\PDFS\\cotizacion.jasper";
             
             reporte =  (JasperReport) JRLoader.loadObjectFromFile(path);
