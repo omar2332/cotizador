@@ -6,10 +6,9 @@
 package Principal;
 
 import java.sql.SQLException;
-import java.text.DateFormat;
+
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -112,9 +111,15 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         labelTotal.setText("Total: "+ df.format(total));
         labelIVA.setText("IVA: " + df.format(MenuPrincipal.CotizacionActual.iva));
         labelDescuento.setText("Descuento: " + df.format(MenuPrincipal.CotizacionActual.descuento));
+        btnEditar.setVisible(false);
         
-        
-        
+        if(MenuPrincipal.CotizacionActual.guardado){
+            btnPDF.setText("PDF");
+            btnRegresar.setVisible(false);
+            btnCancelar.setText("Menu Principal");
+            btnGuardar.setVisible(false);
+            btnEditar.setVisible(true);
+        }
         
         
         
@@ -248,6 +253,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         labelVigencia = new javax.swing.JLabel();
         labelCotizacion = new javax.swing.JLabel();
         labelFecha = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -373,37 +379,40 @@ public class ResumenCotizacion extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        btnEditar.setText("Editar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCancelar)
                         .addGap(60, 60, 60)
                         .addComponent(btnRegresar)
-                        .addGap(67, 67, 67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditar)
+                        .addGap(43, 43, 43)
                         .addComponent(btnGuardar)
                         .addGap(74, 74, 74)
                         .addComponent(btnPDF))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelIVA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelDescuento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labelSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelIVA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelDescuento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jLabel5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(189, 189, 189)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel9)
+                            .addGap(189, 189, 189)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -438,7 +447,8 @@ public class ResumenCotizacion extends javax.swing.JPanel {
                     .addComponent(btnCancelar)
                     .addComponent(btnRegresar)
                     .addComponent(btnGuardar)
-                    .addComponent(btnPDF))
+                    .addComponent(btnPDF)
+                    .addComponent(btnEditar))
                 .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -448,8 +458,8 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         
         MenuPrincipal.CotizacionActual = null;
         MenuInicial mi = new MenuInicial();//declaramos el objeto Menuinicial
-        mi.setLocation(412,0);//posicion del panel ajustado al frame
-        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        mi.setLocation(142,0);//posicion del panel ajustado al frame
+        mi.setSize(965, 720);//tamaño del panel ajustado al frame
          /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
         MenuPrincipal.panelPrincipal.add(mi);
@@ -495,7 +505,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         if(!MenuPrincipal.CotizacionActual.guardado){
             guardar();
             btnGuardar.setEnabled(false);
-             btnPDF.setText("PDF");
+            btnPDF.setText("PDF");
             btnRegresar.setVisible(false);
             btnCancelar.setText("Menu Principal");
             JOptionPane.showMessageDialog(this,
@@ -536,6 +546,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaInventario;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnRegresar;

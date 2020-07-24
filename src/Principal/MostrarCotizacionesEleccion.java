@@ -23,9 +23,12 @@ public class MostrarCotizacionesEleccion extends javax.swing.JPanel {
     /**
      * Creates new form MostrarCotizacionesEleccion
      */
+    
+    public List<Cotizacion> listatemp ;
     public MostrarCotizacionesEleccion(List<Cotizacion> CotizacionConsulta) {
         initComponents();
-      
+       listatemp = CotizacionConsulta;
+      Ver.setEnabled(false);
        String tabla[][] = new String [CotizacionConsulta.size()] [4];
        DecimalFormat df = new DecimalFormat("###,###.00");
        for(int i=0; i<CotizacionConsulta.size();i++){
@@ -75,6 +78,11 @@ public class MostrarCotizacionesEleccion extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaContenido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaContenidoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaContenido);
 
         jLabel1.setText("Lista Cotizaciones");
@@ -94,6 +102,11 @@ public class MostrarCotizacionesEleccion extends javax.swing.JPanel {
         });
 
         Ver.setText("Ver Cotizacion");
+        Ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,6 +184,33 @@ public class MostrarCotizacionesEleccion extends javax.swing.JPanel {
         MenuPrincipal.panelPrincipal.repaint();
         
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
+
+    private void VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerActionPerformed
+        // TODO add your handling code here:
+        if(tablaContenido.getSelectedRow() >= 0){
+            if(tablaContenido.getSelectedRows().length == 1){
+                MenuPrincipal.CotizacionActual = listatemp.get(tablaContenido.getSelectedRow());
+                ResumenCotizacion mp = new ResumenCotizacion();
+                
+                mp.setLocation(213,70);//posicion del panel ajustado al frame
+                mp.setSize(823, 600);//tamaño del panel ajustado al frame
+                /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+                MenuPrincipal.panelPrincipal.removeAll();
+                MenuPrincipal.panelPrincipal.add(mp);
+                MenuPrincipal.panelPrincipal.setLocation(0,0);
+                MenuPrincipal.panelPrincipal.setSize(1250, 720);
+                MenuPrincipal.panelPrincipal.revalidate();
+                MenuPrincipal.panelPrincipal.repaint();
+            }
+        }
+        
+    }//GEN-LAST:event_VerActionPerformed
+
+    private void tablaContenidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContenidoMouseClicked
+        // TODO add your handling code here:
+        
+        Ver.setEnabled(true);
+    }//GEN-LAST:event_tablaContenidoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

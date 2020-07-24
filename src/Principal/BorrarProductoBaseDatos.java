@@ -253,8 +253,8 @@ public class BorrarProductoBaseDatos extends javax.swing.JPanel {
         
         //posicionamiento del primer panel
         MenuInicial mi = new MenuInicial();
-        mi.setLocation(412,0);//posicion del panel ajustado al frame
-        mi.setSize(426, 720);//tamaño del panel ajustado al frame
+        mi.setLocation(142,0);//posicion del panel ajustado al frame
+        mi.setSize(965, 720);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
         MenuPrincipal.panelPrincipal.add(mi);

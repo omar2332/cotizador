@@ -96,7 +96,9 @@ public class SQL {
             IDS[i] = "SISA-"+resultado.getString("id_cotizacion");
             i++;
         }
-               
+       conexion.close();
+       resultado.close();
+       sentencia.close();
        return IDS;
        
    }
@@ -121,6 +123,9 @@ public class SQL {
        
        
        Productos temp = new Productos(idProducto,cantidad,descripcion,Double.parseDouble(precio_temp));
+       conexion.close();
+        resultado.close();
+        sentencia.close();
        return temp;
    }
    
@@ -138,7 +143,9 @@ public class SQL {
        while(resultado.next()){
            idsCotizaciones.add(resultado.getInt("id_cotizacion")  );
        }
-       
+       conexion.close();
+        resultado.close();
+        sentencia.close();
        return (ArrayList<Integer>) idsCotizaciones;
    }
    
