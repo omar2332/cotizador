@@ -16,9 +16,7 @@ import java.awt.Color;
 import javax.swing.SwingUtilities;
 import java.awt.Dimension;
 import javax.swing.JLabel;
-import javax.swing.UIManager;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
+
 /*
  * @author HP y Polette
  */

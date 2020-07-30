@@ -32,6 +32,9 @@ public class SQL {
    
    
    
+    public void cerrarConexion() throws SQLException, SQLException{
+        conexion.close();
+    }
    
    public int UnID(String consultaSQL) throws ClassNotFoundException, SQLException{
                //Para la conexion de la base de datos en postgresql

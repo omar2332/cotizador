@@ -325,8 +325,8 @@ public class EditarCliente extends javax.swing.JPanel {
             panelPrincipal.repaint();
         }else{
             MenuClientes mp = new MenuClientes();//declaramos el objeto panel MenuProductos
-            mp.setLocation(412,0);//posicion del panel ajustado al frame
-            mp.setSize(426, 720);//tamaño del panel ajustado al frame
+            mp.setLocation(290,0);//posicion del panel ajustado al frame
+            mp.setSize(960, 720);//tamaño del panel ajustado al frame
             /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
             panelPrincipal.removeAll();
             panelPrincipal.add(mp);

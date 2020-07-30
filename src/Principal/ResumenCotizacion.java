@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 
 import java.text.DecimalFormat;
@@ -15,16 +16,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author HP
  */
+@SuppressWarnings("unchecked")
 public class ResumenCotizacion extends javax.swing.JPanel {
 
     /**
@@ -256,6 +260,8 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         btnEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(823, 618));
+        setMinimumSize(new java.awt.Dimension(823, 618));
 
         TablaInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -380,6 +386,11 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         );
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -472,7 +483,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         PasoTres mp = new PasoTres(MenuPrincipal.CotizacionActual.listaProducto);
-        //[550, 421]
+       
         mp.setLocation(125,119);//posicion del panel ajustado al frame
         mp.setSize(1000, 511);//tamaño del panel ajustado al frame
         
@@ -492,8 +503,7 @@ public class ResumenCotizacion extends javax.swing.JPanel {
         btnPDF.setText("PDF");
         btnRegresar.setVisible(false);
         btnCancelar.setText("Menu Principal");
-        JOptionPane.showMessageDialog(this,
-        "Se ha guardado correctamente");
+        JOptionPane.showMessageDialog(this, "Se ha guardado correctamente");
         btnGuardar.setEnabled(false);
         
         
@@ -501,46 +511,50 @@ public class ResumenCotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-        
+        // TODO add your handling code here:
         if(!MenuPrincipal.CotizacionActual.guardado){
             guardar();
             btnGuardar.setEnabled(false);
             btnPDF.setText("PDF");
             btnRegresar.setVisible(false);
             btnCancelar.setText("Menu Principal");
-            JOptionPane.showMessageDialog(this,
-            "Se ha guardado correctamente");
+            JOptionPane.showMessageDialog(this,"Se ha guardado correctamente");
             btnGuardar.setEnabled(false);
         }
         
         try {
-            // TODO add your handling code here:
-            
-            
-            JasperReport reporte;
-            String path = "src\\PDFS\\cotizacion.jasper";
-            
-            reporte =  (JasperReport) JRLoader.loadObjectFromFile(path);
+              
+            InputStream archivo = getClass().getResourceAsStream("/PDFS/cotizacion.jrxml");
+            JasperDesign dise = JRXmlLoader.load(archivo);
+            JasperReport reporte = JasperCompileManager.compileReport(dise);
             
             Map parametros  = new HashMap();
             parametros.put("filtro", MenuPrincipal.CotizacionActual.id_coti);
-            JasperPrint jprint =  JasperFillManager.fillReport(reporte,parametros,MenuPrincipal.consultas.getConexion());
+            JasperPrint jprint =  JasperFillManager.fillReport(   reporte,parametros,MenuPrincipal.consultas.getConexion());
             
             JasperViewer view = new  JasperViewer(jprint, false);
             
             view.setDefaultCloseOperation(MenuPrincipal.DISPOSE_ON_CLOSE);
             view.setVisible(true);
-            
+            MenuPrincipal.consultas.cerrarConexion();
  
             
            
             
             
-        } catch (JRException ex) {
+        } catch (JRException | SQLException ex) {
             Logger.getLogger(ResumenCotizacion.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_btnPDFActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        JOptionPane.showMessageDialog(this,"Proximamente");
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
