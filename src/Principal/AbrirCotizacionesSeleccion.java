@@ -333,7 +333,7 @@ public class AbrirCotizacionesSeleccion extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         MenuCotizaciones mp = new MenuCotizaciones();
-        mp.setLocation(290,0);//posicion del panel ajustado al frame
+        mp.setLocation(145,0);//posicion del panel ajustado al frame
         mp.setSize(960, 720);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
