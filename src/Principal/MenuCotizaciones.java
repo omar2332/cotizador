@@ -567,6 +567,24 @@ boolean a=true;
 
     private void VerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerMouseClicked
         // TODO add your handling code here:
+        
+        AbrirCotizacionesSeleccion mp= null;
+        try {
+            mp = new AbrirCotizacionesSeleccion();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mp.setLocation(140,0);//posicion del panel ajustado al frame
+        mp.setSize(960, 720);//tamaño del panel ajustado al frame
+        /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
+        MenuPrincipal.panelPrincipal.removeAll();
+        MenuPrincipal.panelPrincipal.add(mp);
+        MenuPrincipal.panelPrincipal.setLocation(0,0);
+        MenuPrincipal.panelPrincipal.setSize(1250, 720);
+        MenuPrincipal.panelPrincipal.revalidate();
+        MenuPrincipal.panelPrincipal.repaint();
     }//GEN-LAST:event_VerMouseClicked
 
     private void VerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerMouseEntered

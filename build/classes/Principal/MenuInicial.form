@@ -35,11 +35,7 @@
                   <Component id="PanelWelcome" min="-2" pref="961" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="menuP" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-=======
                       <EmptySpace max="-2" attributes="0"/>
->>>>>>> ramaPol
                       <Component id="jPanel5" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -50,20 +46,12 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-              <Component id="PanelWelcome" min="-2" max="-2" attributes="0"/>
-=======
               <Component id="PanelWelcome" min="-2" pref="67" max="-2" attributes="0"/>
->>>>>>> ramaPol
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel5" max="32767" attributes="0"/>
                   <Component id="menuP" max="32767" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace max="-2" attributes="0"/>
-=======
->>>>>>> ramaPol
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,18 +63,12 @@
           <Color blue="33" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-          <Dimension value="[960, 100]"/>
-        </Property>
-      </Properties>
-=======
           <Dimension value="[960, 70]"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
       </AccessibilityProperties>
->>>>>>> ramaPol
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
@@ -105,25 +87,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-=======
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Component id="btnSalirSistema" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
->>>>>>> ramaPol
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-=======
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnSalirSistema" min="-2" pref="40" max="-2" attributes="0"/>
@@ -148,7 +120,6 @@
               </Events>
             </Component>
           </SubComponents>
->>>>>>> ramaPol
         </Container>
         <Container class="javax.swing.JPanel" name="iconCotizador">
           <Properties>
@@ -170,20 +141,12 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-=======
                   <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
->>>>>>> ramaPol
               </Group>
             </DimensionLayout>
           </Layout>
         </Container>
-<<<<<<< HEAD
-        <Component class="javax.swing.JLabel" name="jLabel1">
-=======
         <Component class="javax.swing.JLabel" name="Cotizador">
->>>>>>> ramaPol
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Baskerville Old Face" size="28" style="1"/>
@@ -207,11 +170,7 @@
           <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-          <Dimension value="[270, 603]"/>
-=======
           <Dimension value="[300, 603]"/>
->>>>>>> ramaPol
         </Property>
       </Properties>
 
@@ -239,20 +198,12 @@
             <Container class="javax.swing.JPanel" name="hideMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-                  <Color blue="33" green="0" red="0" type="rgb"/>
-=======
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
->>>>>>> ramaPol
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< HEAD
-                  <AbsoluteConstraints x="10" y="0" width="70" height="50"/>
-=======
                   <AbsoluteConstraints x="10" y="0" width="40" height="50"/>
->>>>>>> ramaPol
                 </Constraint>
               </Constraints>
 
@@ -260,11 +211,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="buttonhideMenu">
                   <Properties>
-<<<<<<< HEAD
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagen/icons/home 30px.png"/>
-=======
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
@@ -274,7 +220,6 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Imagen/icons/casa (1).png"/>
->>>>>>> ramaPol
                     </Property>
                   </Properties>
                   <Events>
@@ -293,28 +238,18 @@
             <Container class="javax.swing.JPanel" name="Options">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-                  <Color blue="33" green="0" red="0" type="rgb"/>
-=======
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
->>>>>>> ramaPol
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< HEAD
-                  <AbsoluteConstraints x="10" y="50" width="70" height="50"/>
-=======
                   <AbsoluteConstraints x="10" y="50" width="40" height="50"/>
->>>>>>> ramaPol
                 </Constraint>
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="buttonOptions">
-<<<<<<< HEAD
-=======
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -324,7 +259,6 @@
                       <Image iconType="3" name="/Imagen/icons/ajustes.png"/>
                     </Property>
                   </Properties>
->>>>>>> ramaPol
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonOptionsMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonOptionsMouseExited"/>
@@ -394,8 +328,6 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-<<<<<<< HEAD
-=======
             <Container class="javax.swing.JPanel" name="Help">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -446,7 +378,6 @@
                 </DimensionLayout>
               </Layout>
             </Container>
->>>>>>> ramaPol
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="menuB">
@@ -458,11 +389,7 @@
               <Color blue="49" green="3a" red="3a" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-              <Dimension value="[250, 397]"/>
-=======
               <Dimension value="[50, 397]"/>
->>>>>>> ramaPol
             </Property>
           </Properties>
           <Constraints>
@@ -474,17 +401,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-=======
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -507,7 +423,6 @@
                               <Component id="logoSisa" min="-2" pref="181" max="-2" attributes="0"/>
                           </Group>
                       </Group>
->>>>>>> ramaPol
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -515,23 +430,6 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="236" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                       <Component id="PbuttonClientes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -547,32 +445,11 @@
                       <EmptySpace pref="212" max="32767" attributes="0"/>
                       <Component id="logoSisa" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
->>>>>>> ramaPol
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-<<<<<<< HEAD
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e7" green="db" red="cf" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Cambria Math" size="26" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ce" green="be" red="af" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Menu "/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JPanel" name="jPanel2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="0" red="0" type="rgb"/>
-=======
             <Container class="javax.swing.JPanel" name="PbuttonCotizaciones">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -580,16 +457,12 @@
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[185, 50]"/>
->>>>>>> ramaPol
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="220" max="32767" attributes="0"/>
-=======
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -597,19 +470,10 @@
                           <Component id="buttonCotizaciones" pref="181" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel1">
-=======
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -664,7 +528,6 @@
                   <Dimension value="[0, 5]"/>
                 </Property>
               </Properties>
->>>>>>> ramaPol
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -674,21 +537,11 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
               </Layout>
             </Container>
-<<<<<<< HEAD
-            <Container class="javax.swing.JPanel" name="jPanel3">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="0" red="0" type="rgb"/>
-=======
             <Container class="javax.swing.JPanel" name="PbuttonProductos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -696,16 +549,12 @@
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[168, 50]"/>
->>>>>>> ramaPol
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -713,19 +562,10 @@
                           <Component id="buttonProductos" pref="181" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel4">
-=======
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -780,7 +620,6 @@
                   <Dimension value="[245, 5]"/>
                 </Property>
               </Properties>
->>>>>>> ramaPol
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -790,21 +629,11 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
               </Layout>
             </Container>
-<<<<<<< HEAD
-            <Container class="javax.swing.JPanel" name="jPanel6">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="0" red="0" type="rgb"/>
-=======
             <Container class="javax.swing.JPanel" name="PbuttonClientes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -812,16 +641,12 @@
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[156, 50]"/>
->>>>>>> ramaPol
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -829,19 +654,10 @@
                           <Component id="buttonClientes" pref="177" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel7">
-=======
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -896,31 +712,20 @@
                   <Dimension value="[245, 5]"/>
                 </Property>
               </Properties>
->>>>>>> ramaPol
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="245" max="32767" attributes="0"/>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
->>>>>>> ramaPol
                   </Group>
                 </DimensionLayout>
               </Layout>
             </Container>
-<<<<<<< HEAD
-=======
             <Component class="javax.swing.JLabel" name="logoSisa">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -928,7 +733,6 @@
                 </Property>
               </Properties>
             </Component>
->>>>>>> ramaPol
           </SubComponents>
         </Container>
       </SubComponents>
@@ -943,128 +747,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnSalirSistema" min="-2" pref="133" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnOpciones" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnClientes" min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="btnProductos" min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="btnCotizaciones" min="-2" pref="134" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-=======
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> ramaPol
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="btnSalirSistema" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                  <Component id="btnCotizaciones" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="btnProductos" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="btnClientes" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="btnOpciones" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagen/logo (6).png"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSalirSistema">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Salir del sistema"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirSistemaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCotizaciones">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Cotizaciones"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCotizacionesActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnProductos">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Productos"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductosActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnClientes">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Clientes"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientesActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnOpciones">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Opciones"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpcionesActionPerformed"/>
-          </Events>
-        </Component>
-      </SubComponents>
-=======
               <EmptySpace min="0" pref="650" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
->>>>>>> ramaPol
     </Container>
   </SubComponents>
 </Form>
