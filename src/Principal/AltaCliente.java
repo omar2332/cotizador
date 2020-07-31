@@ -278,7 +278,7 @@ public class AltaCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(!MenuPrincipal.decisionAltaCliente){
             MenuClientes mi = new MenuClientes();
-            mi.setLocation(290,0);//posicion del panel ajustado al frame
+            mi.setLocation(140,0);//posicion del panel ajustado al frame
             mi.setSize(960, 720);//tamaño del panel ajustado al frame
             /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
             MenuPrincipal.panelPrincipal.removeAll();

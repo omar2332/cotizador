@@ -160,7 +160,7 @@ public class AgregarProductoBaseDatos extends javax.swing.JPanel {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         MenuProductos mp = new MenuProductos();//declaramos el objeto panel MenuProductos
-        mp.setLocation(290,0);//posicion del panel ajustado al frame
+        mp.setLocation(140,0);//posicion del panel ajustado al frame
         mp.setSize(960, 720);//tamaño del panel ajustado al frame
         /* Esto ultimo es para colocar el panel dentro del frame y ajustarlo en el centro*/
         MenuPrincipal.panelPrincipal.removeAll();
@@ -229,6 +229,7 @@ public class AgregarProductoBaseDatos extends javax.swing.JPanel {
 
     private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
 
